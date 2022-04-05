@@ -14,24 +14,18 @@
       hcssmith =  let lib = pkgs.lib; in
       pkgs.stdenv.mkDerivation rec {
         pname = "hcssmith.com";
-        version = "development";
+        version = "latest";
         
         phases = ["preparePhase" "installPhase"];
 
-        home = (import ./lib/genHome.nix).genHome (import ./site.nix);
-        articles = (import ./lib/genArticle.nix).makeArticles (import ./site.nix);
-
+        installPhase = (import ./lib/export.nix).makeSite (import src);
 
         preparePhase = ''
           mkdir -p $out
           mkdir -p $out/articles
           '';
-        installPhase = ''
-          cp ${home} $out/index.html
-          ${articles}
-        '';
 
-        src = ./.;
+        src = ./site.nix;
       };
     };
 

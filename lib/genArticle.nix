@@ -23,7 +23,7 @@ let
   subInContent article (customTagReplace article.customMerges 
   (customTagReplace set.customMerges
       (subInSiteName set
-        (subInTitle article (builtins.readFile set.articleTemplate)))));
+        (subInTitle article set.templates.article))));
 
   subInTitle = article: str:
     builtins.replaceStrings [ (buildTag "title") ] [ article.title ] str;

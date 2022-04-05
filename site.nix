@@ -1,11 +1,19 @@
 {
   siteName = "testing";
-  indexTemplate = ./templates/index2.tmpl;
-  articleTemplate = ./templates/article2.tmpl;
 
   customMerges = {
     cssmerge = "./main.css";
     lasteditdate = "20220402";
+  };
+
+  templates = {
+    index = builtins.readFile ./templates/index2.tmpl;
+    article = ''
+<!--siteName-->
+<!--title-->
+ttttttttttttttttttttttttt
+<!--content-->
+'';
   };
 
   articles = [
@@ -32,4 +40,5 @@
         };
       }
   ];
+  
 }

@@ -26,10 +26,22 @@ let
     in
     builtins.concatStringsSep "\n" l; 
   
+  ensureIndexTemplate = s:
+    if builtins.hasAttr "index" s.templates then
+      s.templates.index
+    else
+      builtins.readFile ../templates/index.tmpl;
+  ensureArticleTemplate = s:
+    if builtins.hasAttr "article" s.templates then
+      s.templates.article
+    else
+      builtins.readFile ../templates/article.tmpl;
 
 in {
   makeLink = makeLink;
   buildTag = buildTag;
   customTagReplace = customTagReplace;
   makeMultiCommand = makeMultiCommand;
+  ensureIndexTemplate = ensureIndexTemplate;
+  ensureArticleTemplate = ensureArticleTemplate;
 }

@@ -1,16 +1,14 @@
 with (import ./util.nix);
 
 let
-  genHome = s:
-    let finalSet = checkHome s;
-    in builtins.toFile "index.html" (buildArticleLinkList finalSet
-      (customTagReplace finalSet.customMerges (replaceTitle finalSet)));
 
-  checkHome = s:
-    s // {
-      indexTemplate = ensureIndexTemplate s;
-      articleTemplate = ensureArticleTemplate s;
-    };
+  genHome = s:
+    let 
+      nixfilename = builtins.toFile "index.html" (buildArticleLinkList s
+      (customTagReplace s.customMerges (replaceTitle s)));
+    in
+    builtins.replaceStrings [ "--sub--" ] [ nixfilename ] "cp --sub-- $out/index.html";
+
 
   buildArticleLinkList = s: text:
     let linkList = map (x: makeLink x "articles") s.articles;
@@ -24,17 +22,7 @@ let
 
   replaceTitle = s:
     builtins.replaceStrings [ (buildTag "siteName") ] [ s.siteName ]
-    (builtins.readFile s.indexTemplate);
+    s.templates.index;
 
-  ensureIndexTemplate = s:
-    if builtins.hasAttr "indexTemplate" s then
-      s.indexTemplate
-    else
-      ../templates/index.tmpl;
-  ensureArticleTemplate = s:
-    if builtins.hasAttr "articleTemplate" s then
-      s.indexTemplate
-    else
-      ../templates/article.tmpl;
 in { genHome = genHome; }
 
