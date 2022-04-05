@@ -2,12 +2,12 @@ with (import ./genHome.nix);
 with (import ./genArticle.nix);
 with (import ./util.nix);
 let
-    makeSite = site: pkgs:
-    let s = checkSite site;
-     home = genHome s;
-        article = makeArticles s pkgs;
-    in 
-    builtins.concatStringsSep "\n" [home article];
+  makeSite = site: pkgs:
+    let
+      s = checkSite site;
+      home = genHome s;
+      article = makeArticles s pkgs;
+    in builtins.concatStringsSep "\n" [ home article ];
 
   checkSite = s:
     s // {
@@ -16,4 +16,4 @@ let
         article = ensureArticleTemplate s;
       };
     };
-in {  makeSite = makeSite; }
+in { makeSite = makeSite; }

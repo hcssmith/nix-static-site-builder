@@ -12,20 +12,24 @@ let
     in builtins.replaceStrings pre post
     ''<li><a href ="--Url--">--Name--</a></li>>'';
 
-  customTagReplace = customMerges: text:
-    let
-      vallist = map (x: builtins.getAttr x customMerges)
-        (builtins.attrNames customMerges);
-      taglist = map (x: buildTag x) (builtins.attrNames customMerges);
-    in builtins.replaceStrings taglist vallist text;
+  customTagReplace = set: text:
+  if builtins.hasAttr "customMerges" set then 
+  let
+      vallist = map (x: builtins.getAttr x set.customMerges)
+        (builtins.attrNames set.customMerges);
+      taglist = map (x: buildTag x) (builtins.attrNames set.customMerges);
+  in builtins.replaceStrings taglist vallist text
+  else text;
 
   buildTag = s: builtins.replaceStrings [ "tag" ] [ s ] "<!--tag-->";
-  
+
   makeMultiCommand = list: string:
-    let l = map (x: (builtins.replaceStrings [ "--sub1--" "--sub2--" ] [ x.nixname x.name ] string)) list;
-    in
-    builtins.concatStringsSep "\n" l; 
-  
+    let
+      l = map (x:
+        (builtins.replaceStrings [ "--sub1--" "--sub2--" ] [ x.nixname x.name ]
+          string)) list;
+    in builtins.concatStringsSep "\n" l;
+
   ensureIndexTemplate = s:
     if builtins.hasAttr "index" s.templates then
       s.templates.index

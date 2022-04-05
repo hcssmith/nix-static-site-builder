@@ -4,14 +4,13 @@ let
 
   md = import ./markdown.nix;
   makeArticles = s: p:
-    makeMultiCommand (makeArticleSub s.articles s p) "cp --sub1-- $out/articles/--sub2--";
+    makeMultiCommand (makeArticleSub s.articles s p)
+    "cp --sub1-- $out/articles/--sub2--";
 
-  makeArticleSub = arts: s: p:
-    map (a: printArticle (makeArticle a s p)) arts;
+  makeArticleSub = arts: s: p: map (a: printArticle (makeArticle a s p)) arts;
 
-
-  printArticle = a:
-    { name = a.name;
+  printArticle = a: {
+    name = a.name;
     nixname = builtins.toFile a.name a.content;
   };
 
@@ -21,10 +20,9 @@ let
   };
 
   subArticle = article: set: pkgs:
-  subInContent article (customTagReplace article.customMerges 
-  (customTagReplace set.customMerges
-      (subInSiteName set
-        (subInTitle article set.templates.article)))) pkgs;
+    subInContent article (customTagReplace article
+      (customTagReplace set
+        (subInSiteName set (subInTitle article set.templates.article)))) pkgs;
 
   subInTitle = article: str:
     builtins.replaceStrings [ (buildTag "title") ] [ article.title ] str;
@@ -34,7 +32,6 @@ let
 
   subInContent = article: str: pkgs:
     let c = (md.convertMarkdown article.content article.title pkgs);
-    in
-    builtins.replaceStrings [ (buildTag "content") ] [ c ] str;
+    in builtins.replaceStrings [ (buildTag "content") ] [ c ] str;
 
 in { makeArticles = makeArticles; }

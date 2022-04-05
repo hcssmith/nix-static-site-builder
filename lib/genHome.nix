@@ -3,12 +3,11 @@ with (import ./util.nix);
 let
 
   genHome = s:
-    let 
+    let
       nixfilename = builtins.toFile "index.html" (buildArticleLinkList s
-      (customTagReplace s.customMerges (replaceTitle s)));
-    in
-    builtins.replaceStrings [ "--sub--" ] [ nixfilename ] "cp --sub-- $out/index.html";
-
+        (customTagReplace s (replaceTitle s)));
+    in builtins.replaceStrings [ "--sub--" ] [ nixfilename ]
+    "cp --sub-- $out/index.html";
 
   buildArticleLinkList = s: text:
     let linkList = map (x: makeLink x "articles") s.articles;

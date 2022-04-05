@@ -5,34 +5,29 @@
   };
 
   outputs = { self, nixpkgs, flake-utils }:
-  flake-utils.lib.eachDefaultSystem (system:
-  let
-    pkgs = nixpkgs.legacyPackages.${system};
-  in
-  rec {
-    packages = flake-utils.lib.flattenTree {
-      hcssmith =  let lib = pkgs.lib; in
-      pkgs.stdenv.mkDerivation rec {
-        pname = "hcssmith.com";
-        version = "latest";
-        
-        phases = ["preparePhase" "installPhase"];
+    flake-utils.lib.eachDefaultSystem (system:
+      let pkgs = nixpkgs.legacyPackages.${system};
+      in rec {
+        packages = flake-utils.lib.flattenTree {
+          hcssmith = let lib = pkgs.lib;
+          in pkgs.stdenv.mkDerivation rec {
+            pname = "hcssmith.com";
+            version = "latest";
 
-        installPhase = (import ./lib).makeSite (import src) pkgs;
+            phases = [ "preparePhase" "installPhase" ];
 
-        preparePhase = ''
-          mkdir -p $out
-          mkdir -p $out/articles
-          '';
+            installPhase = (import ./lib).makeSite (import src) pkgs;
 
-        src = ./site.nix;
-      };
-    };
+            preparePhase = ''
+              mkdir -p $out
+              mkdir -p $out/articles
+            '';
 
-    defaultPackage = packages.hcssmith;
-    defaultApp = packages.hcssmith;
+            src = ./site.nix;
+          };
+        };
 
-
-  }
-  );
+        defaultPackage = packages.hcssmith;
+        defaultApp = packages.hcssmith;
+      });
 }

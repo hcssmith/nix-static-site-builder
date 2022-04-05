@@ -9,11 +9,11 @@
   templates = {
     index = builtins.readFile ./templates/index2.tmpl;
     article = ''
-<!--siteName-->
-<!--title-->
-ttttttttttttttttttttttttt
-<!--content-->
-'';
+      <!--siteName-->
+      <!--title-->
+      ttttttttttttttttttttttttt
+      <!--content-->
+    '';
   };
 
   articles = [
@@ -23,10 +23,7 @@ ttttttttttttttttttttttttt
       tags = [ "nix" "flakes" "static" ];
       content = ''
         Here is some content
-        '';
-      customMerges = {
-        test1 = "Test1";
-      };
+      '';
     }
     {
       urlname = "concerningEngland";
@@ -34,11 +31,8 @@ ttttttttttttttttttttttttt
       tags = [ "England" ];
       content = ''
         Here is some more content
-        '';
-        customMerges = {
-          test2 = "rest2";
-        };
-      }
+      '';
+    }
   ];
-  
+
 }
