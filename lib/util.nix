@@ -20,8 +20,16 @@ let
     in builtins.replaceStrings taglist vallist text;
 
   buildTag = s: builtins.replaceStrings [ "tag" ] [ s ] "<!--tag-->";
+  
+  makeMultiCommand = list: string:
+    let l = map (x: (builtins.replaceStrings [ "--sub1--" "--sub2--" ] [ x.nixname x.name ] string)) list;
+    in
+    builtins.concatStringsSep "\n" l; 
+  
+
 in {
   makeLink = makeLink;
   buildTag = buildTag;
   customTagReplace = customTagReplace;
+  makeMultiCommand = makeMultiCommand;
 }

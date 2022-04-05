@@ -16,6 +16,9 @@
       content = ''
         Here is some content
         '';
+      customMerges = {
+        test1 = "Test1";
+      };
     }
     {
       urlname = "concerningEngland";
@@ -24,6 +27,9 @@
       content = ''
         Here is some more content
         '';
-    }
+        customMerges = {
+          test2 = "rest2";
+        };
+      }
   ];
 }

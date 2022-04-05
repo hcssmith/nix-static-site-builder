@@ -3,13 +3,14 @@ with (import ./util.nix);
 let
   genHome = s:
     let finalSet = checkHome s;
-    in builtins.toFile "inedx.html" (buildArticleLinkList finalSet
+    in builtins.toFile "index.html" (buildArticleLinkList finalSet
       (customTagReplace finalSet.customMerges (replaceTitle finalSet)));
 
-      checkHome = s: s // { 
-        indexTemplate = ensureIndexTemplate s; 
-        articleTemplate = ensureArticleTemplate s;
-      };
+  checkHome = s:
+    s // {
+      indexTemplate = ensureIndexTemplate s;
+      articleTemplate = ensureArticleTemplate s;
+    };
 
   buildArticleLinkList = s: text:
     let linkList = map (x: makeLink x "articles") s.articles;
