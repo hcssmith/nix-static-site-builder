@@ -18,7 +18,7 @@
         
         phases = ["preparePhase" "installPhase"];
 
-        installPhase = (import ./lib/export.nix).makeSite (import src);
+        installPhase = (import ./lib).makeSite (import src) pkgs;
 
         preparePhase = ''
           mkdir -p $out

@@ -2,10 +2,10 @@ with (import ./genHome.nix);
 with (import ./genArticle.nix);
 with (import ./util.nix);
 let
-    makeSite = site: 
+    makeSite = site: pkgs:
     let s = checkSite site;
      home = genHome s;
-        article = makeArticles s;
+        article = makeArticles s pkgs;
     in 
     builtins.concatStringsSep "\n" [home article];
 
