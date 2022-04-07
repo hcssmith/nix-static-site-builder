@@ -41,6 +41,15 @@ let
     else
       builtins.readFile ../templates/article.tmpl;
 
+  ensureHeader = s:
+    if builtins.hasAttr "header" s then
+      s.header
+    else "";
+
+  ensureFooter = s:
+    if builtins.hasAttr "footer" s then
+      s.footer
+    else "";
 in {
   makeLink = makeLink;
   buildTag = buildTag;
@@ -48,4 +57,6 @@ in {
   makeMultiCommand = makeMultiCommand;
   ensureIndexTemplate = ensureIndexTemplate;
   ensureArticleTemplate = ensureArticleTemplate;
+  ensureFooter = ensureFooter;
+  ensureHeader = ensureHeader;
 }

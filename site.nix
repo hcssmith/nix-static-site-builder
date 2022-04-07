@@ -16,6 +16,14 @@
     '';
   };
 
+  header = ''
+HEAD
+    '';
+
+  footer = ''
+FOOT
+    '';
+
   articles = [
     {
       urlname = "howThisSiteIsBuild";

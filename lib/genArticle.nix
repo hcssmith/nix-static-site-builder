@@ -20,9 +20,9 @@ let
   };
 
   subArticle = article: set: pkgs:
-    subInContent article (customTagReplace article
+    set.header + (subInContent article (customTagReplace article
       (customTagReplace set
-        (subInSiteName set (subInTitle article set.templates.article)))) pkgs;
+        (subInSiteName set (subInTitle article set.templates.article)))) pkgs) + set.footer;
 
   subInTitle = article: str:
     builtins.replaceStrings [ (buildTag "title") ] [ article.title ] str;

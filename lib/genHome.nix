@@ -4,8 +4,11 @@ let
 
   genHome = s:
     let
-      nixfilename = builtins.toFile "index.html" (buildArticleLinkList s
-        (customTagReplace s (replaceTitle s)));
+      nixfilename = builtins.toFile "index.html" content;
+
+    content = s.header + (buildArticleLinkList s
+    (customTagReplace s (replaceTitle s))) + s.footer;
+     
     in builtins.replaceStrings [ "--sub--" ] [ nixfilename ]
     "cp --sub-- $out/index.html";
 

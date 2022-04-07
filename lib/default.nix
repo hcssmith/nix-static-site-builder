@@ -15,5 +15,8 @@ let
         index = ensureIndexTemplate s;
         article = ensureArticleTemplate s;
       };
+
+      header = ensureHeader s;
+      footer = ensureFooter s;
     };
 in { makeSite = makeSite; }

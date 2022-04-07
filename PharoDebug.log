@@ -1,0 +1,4988 @@
+THERE_BE_DRAGONS_HERE
+The current VM does not support TFFI Callbacks. It will use the old implementation
+6 April 2022 10:45:00.765565 pm
+
+VM: unix - x86_64 - linux-gnu - CoInterpreter VMMaker.oscog-eem.2231 uuid: de62947a-7f40-4977-a232-e06a3a80c939 Jan  1 1980
+StackToRegisterMappingCogit VMMaker.oscog-eem.2227 uuid: 7ea146b4-39ce-4de7-afa3-a76ed1d1da35 Jan  1 1980
+VM: git.6a63f68a3dd4deb7c17dd2c7ac6e4dd4b0b6d937 https://github.com/pharo-project/pharo-vm $ Date: Tue May 30 19:41:27 2017 -0700 $ Plugins:  $Rev$
+
+Image: Pharo10.0.0 [Build information: Pharo-10.0.0+build.512.sha.bfb3a61094b9b7409b265d3f15a3d126b4ef597c (64 Bit)]
+
+StartupUIManager>>inform:
+	Receiver: a StartupUIManager
+	Arguments and temporary variables: 
+		arg1: 	'The current VM does not support TFFI Callbacks. It will use the old impl...etc...
+		tmp1: 	nil
+	Receiver's instance variables: 
+		doNotQuitOnRestart: 	false
+		uiManager: 	nil
+
+
+TFCallbackQueue(Object)>>inform:
+	Receiver: a TFCallbackQueue
+	Arguments and temporary variables: 
+		arg1: 	'The current VM does not support TFFI Callbacks. It will use the old impl...etc...
+	Receiver's instance variables: 
+		semaphore: 	a Semaphore()
+		callbacksByAddress: 	a WeakValueDictionary()
+		pendingQueue: 	an OrderedCollection()
+		callbackProcess: 	a Process in [ 
+			  self value.
+			  Processor terminateRealA...etc...
+		mutex: 	a Mutex
+
+
+[ 
+		self inform:
+			'The current VM does not support TFFI Callbacks. It will use the old implementation' ] in TFCallbackQueue>>startUp
+	Receiver: a TFCallbackQueue
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		semaphore: 	a Semaphore()
+		callbacksByAddress: 	a WeakValueDictionary()
+		pendingQueue: 	an OrderedCollection()
+		callbackProcess: 	a Process in [ 
+			  self value.
+			  Processor terminateRealA...etc...
+		mutex: 	a Mutex
+
+
+FullBlockClosure(BlockClosure)>>cull:
+	Receiver: [ 
+		self inform:
+			'The current VM does not support TFFI Callbacks. It will use the old ...etc...
+	Arguments and temporary variables: 
+		arg1: 	PrimitiveFailed: primitive #primitiveInitializeQueueWith: in TFCallbackQu...etc...
+	Receiver's instance variables: 
+		outerContext: 	TFCallbackQueue>>startUp
+		startpc: 	a CompiledBlock: [ 
+		self inform:
+			'The current VM does not support...etc...
+		numArgs: 	0
+		receiver: 	a TFCallbackQueue
+
+
+[ :arg2 | arg1 cull: arg2 ] in FullBlockClosure(BlockClosure)>>onErrorDo:
+	Receiver: [ 
+	self
+		initializeQueue;
+		forkCallbackProcess ]
+	Arguments and temporary variables: 
+		arg1: 	[ 
+		self inform:
+			'The current VM does not support TFFI Callbacks. It ...etc...
+		arg2: 	PrimitiveFailed: primitive #primitiveInitializeQueueWith: in TFCallbackQu...etc...
+	Receiver's instance variables: 
+		outerContext: 	TFCallbackQueue>>startUp
+		startpc: 	a CompiledBlock: [ 
+	self
+		initializeQueue;
+		forkCallbackProcess ]
+		numArgs: 	0
+		receiver: 	a TFCallbackQueue
+
+
+FullBlockClosure(BlockClosure)>>cull:
+	Receiver: [ :arg2 | arg1 cull: arg2 ]
+	Arguments and temporary variables: 
+		arg1: 	PrimitiveFailed: primitive #primitiveInitializeQueueWith: in TFCallbackQu...etc...
+	Receiver's instance variables: 
+		outerContext: 	FullBlockClosure(BlockClosure)>>onErrorDo:
+		startpc: 	a CompiledBlock: [ :arg2 | arg1 cull: arg2 ]
+		numArgs: 	1
+		receiver: 	[ 
+	self
+		initializeQueue;
+		forkCallbackProcess ]
+
+
+Context>>evaluateSignal:
+	Receiver: FullBlockClosure(BlockClosure)>>on:do:
+	Arguments and temporary variables: 
+		arg1: 	PrimitiveFailed: primitive #primitiveInitializeQueueWith: in TFCallbackQu...etc...
+		tmp1: 	nil
+	Receiver's instance variables: 
+		sender: 	FullBlockClosure(BlockClosure)>>onErrorDo:
+		pc: 	30
+		stackp: 	2
+		method: 	BlockClosure>>#on:do:
+		closureOrNil: 	nil
+		receiver: 	[ 
+	self
+		initializeQueue;
+		forkCallbackProcess ]
+
+
+Context>>handleSignal:
+	Receiver: FullBlockClosure(BlockClosure)>>on:do:
+	Arguments and temporary variables: 
+		arg1: 	PrimitiveFailed: primitive #primitiveInitializeQueueWith: in TFCallbackQu...etc...
+	Receiver's instance variables: 
+		sender: 	FullBlockClosure(BlockClosure)>>onErrorDo:
+		pc: 	30
+		stackp: 	2
+		method: 	BlockClosure>>#on:do:
+		closureOrNil: 	nil
+		receiver: 	[ 
+	self
+		initializeQueue;
+		forkCallbackProcess ]
+
+
+PrimitiveFailed(Exception)>>pass
+	Receiver: PrimitiveFailed: primitive #primitiveInitializeQueueWith: in TFCallbackQueue failed
+	Arguments and temporary variables: 
+		tmp1: 	FullBlockClosure(BlockClosure)>>on:do:
+	Receiver's instance variables: 
+		messageText: 	'primitive #primitiveInitializeQueueWith: in TFCallbackQueue faile...etc...
+		tag: 	nil
+		signaler: 	a TFCallbackQueue
+		signalContext: 	PrimitiveFailed(Exception)>>signal
+		handlerContext: 	FullBlockClosure(BlockClosure)>>on:do:
+		outerContext: 	nil
+		selector: 	#primitiveInitializeQueueWith:
+
+
+[ :arg1 | 
+		tmp2 ifNotNil: [ Smalltalk unregisterExternalObject: tmp2 ].
+		arg1 pass ] in TFCallbackQueue>>initializeQueue
+	Receiver: a TFCallbackQueue
+	Arguments and temporary variables: 
+		tmp2: 	1
+		arg1: 	PrimitiveFailed: primitive #primitiveInitializeQueueWith: in TFCallbackQu...etc...
+	Receiver's instance variables: 
+		semaphore: 	a Semaphore()
+		callbacksByAddress: 	a WeakValueDictionary()
+		pendingQueue: 	an OrderedCollection()
+		callbackProcess: 	a Process in [ 
+			  self value.
+			  Processor terminateRealA...etc...
+		mutex: 	a Mutex
+
+
+FullBlockClosure(BlockClosure)>>cull:
+	Receiver: [ :arg1 | 
+		tmp2 ifNotNil: [ Smalltalk unregisterExternalObject: tmp2 ].
+		arg1 pass ]
+	Arguments and temporary variables: 
+		arg1: 	PrimitiveFailed: primitive #primitiveInitializeQueueWith: in TFCallbackQu...etc...
+	Receiver's instance variables: 
+		outerContext: 	TFCallbackQueue>>initializeQueue
+		startpc: 	a CompiledBlock: [ :arg1 | 
+		tmp2 ifNotNil: [ Smalltalk unregisterExt...etc...
+		numArgs: 	1
+		receiver: 	a TFCallbackQueue
+
+
+[ :arg2 | arg1 cull: arg2 ] in FullBlockClosure(BlockClosure)>>onErrorDo:
+	Receiver: [ 
+	tmp2 := Smalltalk registerExternalObject: semaphore.
+	self primitiveInitializeQueueWit...etc...
+	Arguments and temporary variables: 
+		arg1: 	[ :arg1 | 
+		tmp2 ifNotNil: [ Smalltalk unregisterExternalObject: tmp2 ]....etc...
+		arg2: 	PrimitiveFailed: primitive #primitiveInitializeQueueWith: in TFCallbackQu...etc...
+	Receiver's instance variables: 
+		outerContext: 	TFCallbackQueue>>initializeQueue
+		startpc: 	a CompiledBlock: [ 
+	tmp2 := Smalltalk registerExternalObject: semapho...etc...
+		numArgs: 	0
+		receiver: 	a TFCallbackQueue
+
+
+FullBlockClosure(BlockClosure)>>cull:
+	Receiver: [ :arg2 | arg1 cull: arg2 ]
+	Arguments and temporary variables: 
+		arg1: 	PrimitiveFailed: primitive #primitiveInitializeQueueWith: in TFCallbackQu...etc...
+	Receiver's instance variables: 
+		outerContext: 	FullBlockClosure(BlockClosure)>>onErrorDo:
+		startpc: 	a CompiledBlock: [ :arg2 | arg1 cull: arg2 ]
+		numArgs: 	1
+		receiver: 	[ 
+	tmp2 := Smalltalk registerExternalObject: semaphore.
+	self primit...etc...
+
+
+Context>>evaluateSignal:
+	Receiver: FullBlockClosure(BlockClosure)>>on:do:
+	Arguments and temporary variables: 
+		arg1: 	PrimitiveFailed: primitive #primitiveInitializeQueueWith: in TFCallbackQu...etc...
+		tmp1: 	nil
+	Receiver's instance variables: 
+		sender: 	FullBlockClosure(BlockClosure)>>onErrorDo:
+		pc: 	30
+		stackp: 	2
+		method: 	BlockClosure>>#on:do:
+		closureOrNil: 	nil
+		receiver: 	[ 
+	tmp2 := Smalltalk registerExternalObject: semaphore.
+	self primit...etc...
+
+
+Context>>handleSignal:
+	Receiver: FullBlockClosure(BlockClosure)>>on:do:
+	Arguments and temporary variables: 
+		arg1: 	PrimitiveFailed: primitive #primitiveInitializeQueueWith: in TFCallbackQu...etc...
+	Receiver's instance variables: 
+		sender: 	FullBlockClosure(BlockClosure)>>onErrorDo:
+		pc: 	30
+		stackp: 	2
+		method: 	BlockClosure>>#on:do:
+		closureOrNil: 	nil
+		receiver: 	[ 
+	tmp2 := Smalltalk registerExternalObject: semaphore.
+	self primit...etc...
+
+
+PrimitiveFailed(Exception)>>signal
+	Receiver: PrimitiveFailed: primitive #primitiveInitializeQueueWith: in TFCallbackQueue failed
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		messageText: 	'primitive #primitiveInitializeQueueWith: in TFCallbackQueue faile...etc...
+		tag: 	nil
+		signaler: 	a TFCallbackQueue
+		signalContext: 	PrimitiveFailed(Exception)>>signal
+		handlerContext: 	FullBlockClosure(BlockClosure)>>on:do:
+		outerContext: 	nil
+		selector: 	#primitiveInitializeQueueWith:
+
+
+PrimitiveFailed class(SelectorException class)>>signalFor:
+	Receiver: PrimitiveFailed
+	Arguments and temporary variables: 
+<<error during printing>>
+	Receiver's instance variables: 
+		superclass: 	SelectorException
+		methodDict: 	a MethodDictionary(#standardMessageText->PrimitiveFailed>>#standard...etc...
+		format: 	65543
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#PrimitiveFailed
+		classPool: 	a Dictionary()
+		sharedPools: 	nil
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Kernel-Exceptions'
+
+
+TFCallbackQueue(ProtoObject)>>primitiveFailed:
+	Receiver: a TFCallbackQueue
+	Arguments and temporary variables: 
+		arg1: 	#primitiveInitializeQueueWith:
+	Receiver's instance variables: 
+		semaphore: 	a Semaphore()
+		callbacksByAddress: 	a WeakValueDictionary()
+		pendingQueue: 	an OrderedCollection()
+		callbackProcess: 	a Process in [ 
+			  self value.
+			  Processor terminateRealA...etc...
+		mutex: 	a Mutex
+
+
+TFCallbackQueue(ProtoObject)>>primitiveFailed
+	Receiver: a TFCallbackQueue
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		semaphore: 	a Semaphore()
+		callbacksByAddress: 	a WeakValueDictionary()
+		pendingQueue: 	an OrderedCollection()
+		callbackProcess: 	a Process in [ 
+			  self value.
+			  Processor terminateRealA...etc...
+		mutex: 	a Mutex
+
+
+TFCallbackQueue>>primitiveInitializeQueueWith:
+	Receiver: a TFCallbackQueue
+	Arguments and temporary variables: 
+		arg1: 	1
+	Receiver's instance variables: 
+		semaphore: 	a Semaphore()
+		callbacksByAddress: 	a WeakValueDictionary()
+		pendingQueue: 	an OrderedCollection()
+		callbackProcess: 	a Process in [ 
+			  self value.
+			  Processor terminateRealA...etc...
+		mutex: 	a Mutex
+
+
+[ 
+	tmp2 := Smalltalk registerExternalObject: semaphore.
+	self primitiveInitializeQueueWith: tmp2 ] in TFCallbackQueue>>initializeQueue
+	Receiver: a TFCallbackQueue
+	Arguments and temporary variables: 
+		tmp2: 	1
+	Receiver's instance variables: 
+		semaphore: 	a Semaphore()
+		callbacksByAddress: 	a WeakValueDictionary()
+		pendingQueue: 	an OrderedCollection()
+		callbackProcess: 	a Process in [ 
+			  self value.
+			  Processor terminateRealA...etc...
+		mutex: 	a Mutex
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ 
+	tmp2 := Smalltalk registerExternalObject: semaphore.
+	self primitiveInitializeQueueWit...etc...
+	Arguments and temporary variables: 
+		arg1: 	Error
+		arg2: 	[ :arg2 | arg1 cull: arg2 ]
+	Receiver's instance variables: 
+		outerContext: 	TFCallbackQueue>>initializeQueue
+		startpc: 	a CompiledBlock: [ 
+	tmp2 := Smalltalk registerExternalObject: semapho...etc...
+		numArgs: 	0
+		receiver: 	a TFCallbackQueue
+
+
+FullBlockClosure(BlockClosure)>>onErrorDo:
+	Receiver: [ 
+	tmp2 := Smalltalk registerExternalObject: semaphore.
+	self primitiveInitializeQueueWit...etc...
+	Arguments and temporary variables: 
+		arg1: 	[ :arg1 | 
+		tmp2 ifNotNil: [ Smalltalk unregisterExternalObject: tmp2 ]....etc...
+	Receiver's instance variables: 
+		outerContext: 	TFCallbackQueue>>initializeQueue
+		startpc: 	a CompiledBlock: [ 
+	tmp2 := Smalltalk registerExternalObject: semapho...etc...
+		numArgs: 	0
+		receiver: 	a TFCallbackQueue
+
+
+TFCallbackQueue>>initializeQueue
+	Receiver: a TFCallbackQueue
+	Arguments and temporary variables: 
+		tmp2: 	1
+	Receiver's instance variables: 
+		semaphore: 	a Semaphore()
+		callbacksByAddress: 	a WeakValueDictionary()
+		pendingQueue: 	an OrderedCollection()
+		callbackProcess: 	a Process in [ 
+			  self value.
+			  Processor terminateRealA...etc...
+		mutex: 	a Mutex
+
+
+[ 
+	self
+		initializeQueue;
+		forkCallbackProcess ] in TFCallbackQueue>>startUp
+	Receiver: a TFCallbackQueue
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		semaphore: 	a Semaphore()
+		callbacksByAddress: 	a WeakValueDictionary()
+		pendingQueue: 	an OrderedCollection()
+		callbackProcess: 	a Process in [ 
+			  self value.
+			  Processor terminateRealA...etc...
+		mutex: 	a Mutex
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ 
+	self
+		initializeQueue;
+		forkCallbackProcess ]
+	Arguments and temporary variables: 
+		arg1: 	Error
+		arg2: 	[ :arg2 | arg1 cull: arg2 ]
+	Receiver's instance variables: 
+		outerContext: 	TFCallbackQueue>>startUp
+		startpc: 	a CompiledBlock: [ 
+	self
+		initializeQueue;
+		forkCallbackProcess ]
+		numArgs: 	0
+		receiver: 	a TFCallbackQueue
+
+
+FullBlockClosure(BlockClosure)>>onErrorDo:
+	Receiver: [ 
+	self
+		initializeQueue;
+		forkCallbackProcess ]
+	Arguments and temporary variables: 
+		arg1: 	[ 
+		self inform:
+			'The current VM does not support TFFI Callbacks. It ...etc...
+	Receiver's instance variables: 
+		outerContext: 	TFCallbackQueue>>startUp
+		startpc: 	a CompiledBlock: [ 
+	self
+		initializeQueue;
+		forkCallbackProcess ]
+		numArgs: 	0
+		receiver: 	a TFCallbackQueue
+
+
+TFCallbackQueue>>startUp
+	Receiver: a TFCallbackQueue
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		semaphore: 	a Semaphore()
+		callbacksByAddress: 	a WeakValueDictionary()
+		pendingQueue: 	an OrderedCollection()
+		callbackProcess: 	a Process in [ 
+			  self value.
+			  Processor terminateRealA...etc...
+		mutex: 	a Mutex
+
+
+TFCallbackQueue class>>startUp:
+	Receiver: TFCallbackQueue
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary(#callbackProcess->TFCallbackQueue>>#callbackProc...etc...
+		format: 	65541
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#TFCallbackQueue
+		classPool: 	a Dictionary(#UniqueInstance->a TFCallbackQueue )
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'ThreadedFFI-Callbacks'
+
+
+ClassSessionHandler>>startup:
+	Receiver: a ClassSessionHandler(TFCallbackQueue)
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		registeredClassName: 	#TFCallbackQueue
+
+
+[ :arg2 | arg2 startup: arg1 ] in WorkingSession>>runStartup:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	true
+		arg2: 	a ClassSessionHandler(TFCallbackQueue)
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection()
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+[ arg2 value: arg3 ] in [ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(Sessio...etc...
+		arg2: 	a ClassSessionHandler(TFCallbackQueue)
+		arg3: 	[ :arg2 | arg2 startup: arg1 ]
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection()
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ arg2 value: arg3 ]
+	Arguments and temporary variables: 
+		arg1: 	Exception
+		arg2: 	[ :arg4 | self errorHandler handleError: arg4 ]
+	Receiver's instance variables: 
+		outerContext: 	[ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4...etc...
+		startpc: 	a CompiledBlock: [ arg2 value: arg3 ]
+		numArgs: 	0
+		receiver: 	a WorkingSession
+
+
+[ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(Sessio...etc...
+		arg2: 	[ :arg2 | arg2 startup: arg1 ]
+		arg3: 	a ClassSessionHandler(TFCallbackQueue)
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection()
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+Array(SequenceableCollection)>>do:
+	Receiver: an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(SessionAccessModeResolv...etc...
+	Arguments and temporary variables: 
+<<error during printing>>
+	Receiver's instance variables: 
+an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(SessionAccessModeResolv...etc...
+
+WorkingSession>>runList:do:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(Sessio...etc...
+		arg2: 	[ :arg2 | arg2 startup: arg1 ]
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection()
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+WorkingSession>>runStartup:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection()
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+WorkingSession>>start:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection()
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+SessionManager>>launchSnapshot:andQuit:
+	Receiver: a SessionManager
+	Arguments and temporary variables: 
+		arg1: 	true
+		arg2: 	true
+		tmp1: 	true
+		tmp2: 	true
+	Receiver's instance variables: 
+		currentSession: 	a WorkingSession
+		categories: 	an OrderedCollection(a SessionCategory(System) a SessionCategory(Ne...etc...
+		guiCategory: 	a SessionCategory(Graphical User Interface)
+		toolsCategory: 	a SessionCategory(Tools)
+		networkCategory: 	a SessionCategory(Network)
+		systemCategory: 	a SessionCategory(System)
+		userCategory: 	a SessionCategory(User)
+
+
+
+--- The full stack ---
+StartupUIManager>>inform:
+TFCallbackQueue(Object)>>inform:
+[ 
+		self inform:
+			'The current VM does not support TFFI Callbacks. It will use the old implementation' ] in TFCallbackQueue>>startUp
+FullBlockClosure(BlockClosure)>>cull:
+[ :arg2 | arg1 cull: arg2 ] in FullBlockClosure(BlockClosure)>>onErrorDo:
+FullBlockClosure(BlockClosure)>>cull:
+Context>>evaluateSignal:
+Context>>handleSignal:
+PrimitiveFailed(Exception)>>pass
+[ :arg1 | 
+		tmp2 ifNotNil: [ Smalltalk unregisterExternalObject: tmp2 ].
+		arg1 pass ] in TFCallbackQueue>>initializeQueue
+FullBlockClosure(BlockClosure)>>cull:
+[ :arg2 | arg1 cull: arg2 ] in FullBlockClosure(BlockClosure)>>onErrorDo:
+FullBlockClosure(BlockClosure)>>cull:
+Context>>evaluateSignal:
+Context>>handleSignal:
+PrimitiveFailed(Exception)>>signal
+PrimitiveFailed class(SelectorException class)>>signalFor:
+TFCallbackQueue(ProtoObject)>>primitiveFailed:
+TFCallbackQueue(ProtoObject)>>primitiveFailed
+TFCallbackQueue>>primitiveInitializeQueueWith:
+[ 
+	tmp2 := Smalltalk registerExternalObject: semaphore.
+	self primitiveInitializeQueueWith: tmp2 ] in TFCallbackQueue>>initializeQueue
+FullBlockClosure(BlockClosure)>>on:do:
+FullBlockClosure(BlockClosure)>>onErrorDo:
+TFCallbackQueue>>initializeQueue
+[ 
+	self
+		initializeQueue;
+		forkCallbackProcess ] in TFCallbackQueue>>startUp
+FullBlockClosure(BlockClosure)>>on:do:
+FullBlockClosure(BlockClosure)>>onErrorDo:
+TFCallbackQueue>>startUp
+TFCallbackQueue class>>startUp:
+ClassSessionHandler>>startup:
+[ :arg2 | arg2 startup: arg1 ] in WorkingSession>>runStartup:
+[ arg2 value: arg3 ] in [ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+FullBlockClosure(BlockClosure)>>on:do:
+[ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+Array(SequenceableCollection)>>do:
+WorkingSession>>runList:do:
+WorkingSession>>runStartup:
+WorkingSession>>start:
+SessionManager>>launchSnapshot:andQuit:
+ - - - - - - - - - - - - - - -  
+			- - - - - - - - - - - - - - - - - -
+[ 
+	tmp3 := self launchSnapshot: arg1 andQuit: arg2.
+	tmp1 signal ] in SessionManager>>snapshot:andQuit:
+[ 
+			  self value.
+			  Processor terminateRealActive ] in FullBlockClosure(BlockClosure)>>newProcess
+-------------------------------------------------------------------------------
+
+THERE_BE_DRAGONS_HERE
+primitive #'not found' in File class failed
+6 April 2022 10:45:00.82466 pm
+
+VM: unix - x86_64 - linux-gnu - CoInterpreter VMMaker.oscog-eem.2231 uuid: de62947a-7f40-4977-a232-e06a3a80c939 Jan  1 1980
+StackToRegisterMappingCogit VMMaker.oscog-eem.2227 uuid: 7ea146b4-39ce-4de7-afa3-a76ed1d1da35 Jan  1 1980
+VM: git.6a63f68a3dd4deb7c17dd2c7ac6e4dd4b0b6d937 https://github.com/pharo-project/pharo-vm $ Date: Tue May 30 19:41:27 2017 -0700 $ Plugins:  $Rev$
+
+Image: Pharo10.0.0 [Build information: Pharo-10.0.0+build.512.sha.bfb3a61094b9b7409b265d3f15a3d126b4ef597c (64 Bit)]
+
+File class(ProtoObject)>>primitiveFailed:
+	Receiver: File
+	Arguments and temporary variables: 
+		arg1: 	#'not found'
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary(#basename->File>>#basename #basicOpenForWrite:->...etc...
+		format: 	65537
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#File
+		classPool: 	a Dictionary(#Registry->a WeakRegistry(<this WeakRegistry is locked>...etc...
+		sharedPools: 	nil
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Core'
+
+
+File class>>signalError:for:
+	Receiver: File
+	Arguments and temporary variables: 
+		arg1: 	#'not found'
+		arg2: 	'primFileMasks'
+		tmp1: 	nil
+		tmp2: 	nil
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary(#basename->File>>#basename #basicOpenForWrite:->...etc...
+		format: 	65537
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#File
+		classPool: 	a Dictionary(#Registry->a WeakRegistry(<this WeakRegistry is locked>...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Core'
+
+
+File class>>primFileMasks
+	Receiver: File
+	Arguments and temporary variables: 
+		error: 	#'not found'
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary(#basename->File>>#basename #basicOpenForWrite:->...etc...
+		format: 	65537
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#File
+		classPool: 	a Dictionary(#Registry->a WeakRegistry(<this WeakRegistry is locked>...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Core'
+
+
+File class>>reset
+	Receiver: File
+	Arguments and temporary variables: 
+		tmp1: 	nil
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary(#basename->File>>#basename #basicOpenForWrite:->...etc...
+		format: 	65537
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#File
+		classPool: 	a Dictionary(#Registry->a WeakRegistry(<this WeakRegistry is locked>...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Core'
+
+
+File class>>startUp:
+	Receiver: File
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary(#basename->File>>#basename #basicOpenForWrite:->...etc...
+		format: 	65537
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#File
+		classPool: 	a Dictionary(#Registry->a WeakRegistry(<this WeakRegistry is locked>...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Core'
+
+
+ClassSessionHandler>>startup:
+	Receiver: a ClassSessionHandler(File)
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		registeredClassName: 	#File
+
+
+[ :arg2 | arg2 startup: arg1 ] in WorkingSession>>runStartup:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	true
+		arg2: 	a ClassSessionHandler(File)
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+[ arg2 value: arg3 ] in [ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(Sessio...etc...
+		arg2: 	a ClassSessionHandler(File)
+		arg3: 	[ :arg2 | arg2 startup: arg1 ]
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ arg2 value: arg3 ]
+	Arguments and temporary variables: 
+		arg1: 	Exception
+		arg2: 	[ :arg4 | self errorHandler handleError: arg4 ]
+	Receiver's instance variables: 
+		outerContext: 	[ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4...etc...
+		startpc: 	a CompiledBlock: [ arg2 value: arg3 ]
+		numArgs: 	0
+		receiver: 	a WorkingSession
+
+
+[ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(Sessio...etc...
+		arg2: 	[ :arg2 | arg2 startup: arg1 ]
+		arg3: 	a ClassSessionHandler(File)
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+Array(SequenceableCollection)>>do:
+	Receiver: an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(SessionAccessModeResolv...etc...
+	Arguments and temporary variables: 
+<<error during printing>>
+	Receiver's instance variables: 
+an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(SessionAccessModeResolv...etc...
+
+WorkingSession>>runList:do:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(Sessio...etc...
+		arg2: 	[ :arg2 | arg2 startup: arg1 ]
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+WorkingSession>>runStartup:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+WorkingSession>>start:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+SessionManager>>launchSnapshot:andQuit:
+	Receiver: a SessionManager
+	Arguments and temporary variables: 
+		arg1: 	true
+		arg2: 	true
+		tmp1: 	true
+		tmp2: 	true
+	Receiver's instance variables: 
+		currentSession: 	a WorkingSession
+		categories: 	an OrderedCollection(a SessionCategory(System) a SessionCategory(Ne...etc...
+		guiCategory: 	a SessionCategory(Graphical User Interface)
+		toolsCategory: 	a SessionCategory(Tools)
+		networkCategory: 	a SessionCategory(Network)
+		systemCategory: 	a SessionCategory(System)
+		userCategory: 	a SessionCategory(User)
+
+
+[ 
+	tmp3 := self launchSnapshot: arg1 andQuit: arg2.
+	tmp1 signal ] in SessionManager>>snapshot:andQuit:
+	Receiver: a SessionManager
+	Arguments and temporary variables: 
+<<error during printing>>
+	Receiver's instance variables: 
+		currentSession: 	a WorkingSession
+		categories: 	an OrderedCollection(a SessionCategory(System) a SessionCategory(Ne...etc...
+		guiCategory: 	a SessionCategory(Graphical User Interface)
+		toolsCategory: 	a SessionCategory(Tools)
+		networkCategory: 	a SessionCategory(Network)
+		systemCategory: 	a SessionCategory(System)
+		userCategory: 	a SessionCategory(User)
+
+
+[ 
+			  self value.
+			  Processor terminateRealActive ] in FullBlockClosure(BlockClosure)>>newProcess
+	Receiver: [ 
+	tmp3 := self launchSnapshot: arg1 andQuit: arg2.
+	tmp1 signal ]
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		outerContext: 	SessionManager>>snapshot:andQuit:
+		startpc: 	a CompiledBlock: [ 
+	tmp3 := self launchSnapshot: arg1 andQuit: arg2.
+...etc...
+		numArgs: 	0
+		receiver: 	a SessionManager
+
+
+
+--- The full stack ---
+File class(ProtoObject)>>primitiveFailed:
+File class>>signalError:for:
+File class>>primFileMasks
+File class>>reset
+File class>>startUp:
+ClassSessionHandler>>startup:
+[ :arg2 | arg2 startup: arg1 ] in WorkingSession>>runStartup:
+[ arg2 value: arg3 ] in [ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+FullBlockClosure(BlockClosure)>>on:do:
+[ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+Array(SequenceableCollection)>>do:
+WorkingSession>>runList:do:
+WorkingSession>>runStartup:
+WorkingSession>>start:
+SessionManager>>launchSnapshot:andQuit:
+[ 
+	tmp3 := self launchSnapshot: arg1 andQuit: arg2.
+	tmp1 signal ] in SessionManager>>snapshot:andQuit:
+[ 
+			  self value.
+			  Processor terminateRealActive ] in FullBlockClosure(BlockClosure)>>newProcess
+-------------------------------------------------------------------------------
+
+THERE_BE_DRAGONS_HERE
+primitive #currentWorkingDirectoryPathWithBuffer: in Unix64Platform failed
+6 April 2022 10:45:00.838058 pm
+
+VM: unix - x86_64 - linux-gnu - CoInterpreter VMMaker.oscog-eem.2231 uuid: de62947a-7f40-4977-a232-e06a3a80c939 Jan  1 1980
+StackToRegisterMappingCogit VMMaker.oscog-eem.2227 uuid: 7ea146b4-39ce-4de7-afa3-a76ed1d1da35 Jan  1 1980
+VM: git.6a63f68a3dd4deb7c17dd2c7ac6e4dd4b0b6d937 https://github.com/pharo-project/pharo-vm $ Date: Tue May 30 19:41:27 2017 -0700 $ Plugins:  $Rev$
+
+Image: Pharo10.0.0 [Build information: Pharo-10.0.0+build.512.sha.bfb3a61094b9b7409b265d3f15a3d126b4ef597c (64 Bit)]
+
+Unix64Platform(ProtoObject)>>primitiveFailed:
+	Receiver: an Unix64Platform
+	Arguments and temporary variables: 
+		arg1: 	#currentWorkingDirectoryPathWithBuffer:
+	Receiver's instance variables: 
+an Unix64Platform
+
+Unix64Platform(ProtoObject)>>primitiveFailed
+	Receiver: an Unix64Platform
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+an Unix64Platform
+
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryPathWithBuffer:
+	Receiver: an Unix64Platform
+	Arguments and temporary variables: 
+		arg1: 	#[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0...etc...
+		ec: 	#'not found'
+	Receiver's instance variables: 
+an Unix64Platform
+
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryPathWithBufferSize:
+	Receiver: an Unix64Platform
+	Arguments and temporary variables: 
+		arg1: 	4096
+		tmp1: 	#[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0...etc...
+	Receiver's instance variables: 
+an Unix64Platform
+
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryRawPath
+	Receiver: an Unix64Platform
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+an Unix64Platform
+
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryPath
+	Receiver: an Unix64Platform
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+an Unix64Platform
+
+UnixStore class(DiskStore class)>>defaultWorkingDirectory
+	Receiver: UnixStore
+	Arguments and temporary variables: 
+		tmp1: 	nil
+	Receiver's instance variables: 
+		superclass: 	DiskStore
+		methodDict: 	a MethodDictionary(#checkName:fixErrors:->UnixStore>>#checkName:fix...etc...
+		format: 	65537
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	{MacStore. ReadOnlyUnixStore}
+		name: 	#UnixStore
+		classPool: 	a Dictionary()
+		sharedPools: 	nil
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'FileSystem-Disk-Store'
+
+
+UnixStore(DiskStore)>>defaultWorkingDirectory
+	Receiver: an UnixStore
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		maxFileNameLength: 	255
+
+
+FileSystem>>workingDirectoryPath
+	Receiver: a FileSystem
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		store: 	an UnixStore
+
+
+FileSystem>>resolvePath:
+	Receiver: a FileSystem
+	Arguments and temporary variables: 
+		arg1: 	Path / 'home' / 'hcssmith' / 'Downloads' / 'pharo64' / 'Pharo10.0-64bit-b...etc...
+	Receiver's instance variables: 
+		store: 	an UnixStore
+
+
+AbsolutePath(Path)>>asResolvedBy:
+	Receiver: Path / 'home' / 'hcssmith' / 'Downloads' / 'pharo64' / 'Pharo10.0-64bit-bfb3a61.sources'
+	Arguments and temporary variables: 
+		arg1: 	a FileSystem
+	Receiver's instance variables: 
+Path / 'home' / 'hcssmith' / 'Downloads' / 'pharo64' / 'Pharo10.0-64bit-bfb3a61.sources'
+
+FileSystem>>resolve:
+	Receiver: a FileSystem
+	Arguments and temporary variables: 
+		arg1: 	Path / 'home' / 'hcssmith' / 'Downloads' / 'pharo64' / 'Pharo10.0-64bit-b...etc...
+	Receiver's instance variables: 
+		store: 	an UnixStore
+
+
+FileReference>>fullName
+	Receiver: File @ /home/hcssmith/Downloads/pharo64/Pharo10.0-64bit-bfb3a61.sources
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		path: 	Path / 'home' / 'hcssmith' / 'Downloads' / 'pharo64' / 'Pharo10.0-64bit-b...etc...
+		filesystem: 	a FileSystem
+
+
+SmalltalkImage>>sourcesName
+	Receiver: Smalltalk
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		globals: 	a SystemDictionary(lots of globals)
+		specialObjectsArray: 	an Array(nil false true #Processor->Processor Bitmap Small...etc...
+		vm: 	a VirtualMachine
+
+
+PharoFilesOpener>>sourcesName
+	Receiver: a PharoFilesOpener
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		shouldInformAboutReadOnlyChanges: 	nil
+
+
+PharoFilesOpener>>openSources
+	Receiver: a PharoFilesOpener
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		shouldInformAboutReadOnlyChanges: 	nil
+
+
+PharoFilesOpener>>sourcesFileOrNil
+	Receiver: a PharoFilesOpener
+	Arguments and temporary variables: 
+		tmp1: 	nil
+	Receiver's instance variables: 
+		shouldInformAboutReadOnlyChanges: 	nil
+
+
+SourceFileArray>>ensureOpen
+	Receiver: a SourceFileArray
+	Arguments and temporary variables: 
+		tmp1: 	nil
+		tmp2: 	nil
+	Receiver's instance variables: 
+		files: 	#(nil nil)
+		readOnlyQueue: 	SharedQueue with 0 items
+		flushChanges: 	true
+
+
+SmalltalkImage>>openSourceFiles
+	Receiver: Smalltalk
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		globals: 	a SystemDictionary(lots of globals)
+		specialObjectsArray: 	an Array(nil false true #Processor->Processor Bitmap Small...etc...
+		vm: 	a VirtualMachine
+
+
+SourceFileArray class>>startUp:
+	Receiver: SourceFileArray
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary(#changeRecordsFor:->SourceFileArray>>#changeReco...etc...
+		format: 	65539
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#SourceFileArray
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'System-Sources-Sources'
+
+
+ClassSessionHandler>>startup:
+	Receiver: a ClassSessionHandler(SourceFileArray)
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		registeredClassName: 	#SourceFileArray
+
+
+[ :arg2 | arg2 startup: arg1 ] in WorkingSession>>runStartup:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	true
+		arg2: 	a ClassSessionHandler(SourceFileArray)
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+[ arg2 value: arg3 ] in [ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(Sessio...etc...
+		arg2: 	a ClassSessionHandler(SourceFileArray)
+		arg3: 	[ :arg2 | arg2 startup: arg1 ]
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ arg2 value: arg3 ]
+	Arguments and temporary variables: 
+		arg1: 	Exception
+		arg2: 	[ :arg4 | self errorHandler handleError: arg4 ]
+	Receiver's instance variables: 
+		outerContext: 	[ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4...etc...
+		startpc: 	a CompiledBlock: [ arg2 value: arg3 ]
+		numArgs: 	0
+		receiver: 	a WorkingSession
+
+
+[ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(Sessio...etc...
+		arg2: 	[ :arg2 | arg2 startup: arg1 ]
+		arg3: 	a ClassSessionHandler(SourceFileArray)
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+Array(SequenceableCollection)>>do:
+	Receiver: an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(SessionAccessModeResolv...etc...
+	Arguments and temporary variables: 
+<<error during printing>>
+	Receiver's instance variables: 
+an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(SessionAccessModeResolv...etc...
+
+WorkingSession>>runList:do:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(Sessio...etc...
+		arg2: 	[ :arg2 | arg2 startup: arg1 ]
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+WorkingSession>>runStartup:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+WorkingSession>>start:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+SessionManager>>launchSnapshot:andQuit:
+	Receiver: a SessionManager
+	Arguments and temporary variables: 
+		arg1: 	true
+		arg2: 	true
+		tmp1: 	true
+		tmp2: 	true
+	Receiver's instance variables: 
+		currentSession: 	a WorkingSession
+		categories: 	an OrderedCollection(a SessionCategory(System) a SessionCategory(Ne...etc...
+		guiCategory: 	a SessionCategory(Graphical User Interface)
+		toolsCategory: 	a SessionCategory(Tools)
+		networkCategory: 	a SessionCategory(Network)
+		systemCategory: 	a SessionCategory(System)
+		userCategory: 	a SessionCategory(User)
+
+
+[ 
+	tmp3 := self launchSnapshot: arg1 andQuit: arg2.
+	tmp1 signal ] in SessionManager>>snapshot:andQuit:
+	Receiver: a SessionManager
+	Arguments and temporary variables: 
+<<error during printing>>
+	Receiver's instance variables: 
+		currentSession: 	a WorkingSession
+		categories: 	an OrderedCollection(a SessionCategory(System) a SessionCategory(Ne...etc...
+		guiCategory: 	a SessionCategory(Graphical User Interface)
+		toolsCategory: 	a SessionCategory(Tools)
+		networkCategory: 	a SessionCategory(Network)
+		systemCategory: 	a SessionCategory(System)
+		userCategory: 	a SessionCategory(User)
+
+
+[ 
+			  self value.
+			  Processor terminateRealActive ] in FullBlockClosure(BlockClosure)>>newProcess
+	Receiver: [ 
+	tmp3 := self launchSnapshot: arg1 andQuit: arg2.
+	tmp1 signal ]
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		outerContext: 	SessionManager>>snapshot:andQuit:
+		startpc: 	a CompiledBlock: [ 
+	tmp3 := self launchSnapshot: arg1 andQuit: arg2.
+...etc...
+		numArgs: 	0
+		receiver: 	a SessionManager
+
+
+
+--- The full stack ---
+Unix64Platform(ProtoObject)>>primitiveFailed:
+Unix64Platform(ProtoObject)>>primitiveFailed
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryPathWithBuffer:
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryPathWithBufferSize:
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryRawPath
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryPath
+UnixStore class(DiskStore class)>>defaultWorkingDirectory
+UnixStore(DiskStore)>>defaultWorkingDirectory
+FileSystem>>workingDirectoryPath
+FileSystem>>resolvePath:
+AbsolutePath(Path)>>asResolvedBy:
+FileSystem>>resolve:
+FileReference>>fullName
+SmalltalkImage>>sourcesName
+PharoFilesOpener>>sourcesName
+PharoFilesOpener>>openSources
+PharoFilesOpener>>sourcesFileOrNil
+SourceFileArray>>ensureOpen
+SmalltalkImage>>openSourceFiles
+SourceFileArray class>>startUp:
+ClassSessionHandler>>startup:
+[ :arg2 | arg2 startup: arg1 ] in WorkingSession>>runStartup:
+[ arg2 value: arg3 ] in [ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+FullBlockClosure(BlockClosure)>>on:do:
+[ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+Array(SequenceableCollection)>>do:
+WorkingSession>>runList:do:
+WorkingSession>>runStartup:
+WorkingSession>>start:
+SessionManager>>launchSnapshot:andQuit:
+[ 
+	tmp3 := self launchSnapshot: arg1 andQuit: arg2.
+	tmp1 signal ] in SessionManager>>snapshot:andQuit:
+[ 
+			  self value.
+			  Processor terminateRealActive ] in FullBlockClosure(BlockClosure)>>newProcess
+-------------------------------------------------------------------------------
+
+THERE_BE_DRAGONS_HERE
+Your VM is too old for this image. Please download the latest VM.
+6 April 2022 10:45:00.855895 pm
+
+VM: unix - x86_64 - linux-gnu - CoInterpreter VMMaker.oscog-eem.2231 uuid: de62947a-7f40-4977-a232-e06a3a80c939 Jan  1 1980
+StackToRegisterMappingCogit VMMaker.oscog-eem.2227 uuid: 7ea146b4-39ce-4de7-afa3-a76ed1d1da35 Jan  1 1980
+VM: git.6a63f68a3dd4deb7c17dd2c7ac6e4dd4b0b6d937 https://github.com/pharo-project/pharo-vm $ Date: Tue May 30 19:41:27 2017 -0700 $ Plugins:  $Rev$
+
+Image: Pharo10.0.0 [Build information: Pharo-10.0.0+build.512.sha.bfb3a61094b9b7409b265d3f15a3d126b4ef597c (64 Bit)]
+
+StartupUIManager>>inform:
+	Receiver: a StartupUIManager
+	Arguments and temporary variables: 
+		arg1: 	'Your VM is too old for this image. Please download the latest VM.'
+		tmp1: 	nil
+	Receiver's instance variables: 
+		doNotQuitOnRestart: 	false
+		uiManager: 	nil
+
+
+DiskStore class(Object)>>inform:
+	Receiver: DiskStore
+	Arguments and temporary variables: 
+		arg1: 	'Your VM is too old for this image. Please download the latest VM.'
+	Receiver's instance variables: 
+		superclass: 	FileSystemStore
+		methodDict: 	a MethodDictionary(#=->DiskStore>>#= #accessTimeOf:->DiskStore>>#ac...etc...
+		format: 	65537
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	{UnixStore. WindowsStore}
+		name: 	#DiskStore
+		classPool: 	a Dictionary(#CurrentFS->a FileSystem #DefaultWorkingDirectory->nil ...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'FileSystem-Disk-Store'
+
+
+[ 
+	        ^ self inform:
+		          'Your VM is too old for this image. Please download the latest VM.' ] in DiskStore class>>checkVMVersion
+	Receiver: DiskStore
+	Arguments and temporary variables: 
+		tmp1: 	[ 
+	        ^ self inform:
+		          'Your VM is too old for this image...etc...
+	Receiver's instance variables: 
+		superclass: 	FileSystemStore
+		methodDict: 	a MethodDictionary(#=->DiskStore>>#= #accessTimeOf:->DiskStore>>#ac...etc...
+		format: 	65537
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	{UnixStore. WindowsStore}
+		name: 	#DiskStore
+		classPool: 	a Dictionary(#CurrentFS->a FileSystem #DefaultWorkingDirectory->nil ...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'FileSystem-Disk-Store'
+
+
+False>>ifFalse:
+	Receiver: false
+	Arguments and temporary variables: 
+		arg1: 	[ 
+	        ^ self inform:
+		          'Your VM is too old for this image...etc...
+	Receiver's instance variables: 
+false
+
+[ 
+	Smalltalk vm interpreterSourceDate >= '2019-01-05' asDate ifFalse:
+		tmp1 ] in DiskStore class>>checkVMVersion
+	Receiver: DiskStore
+	Arguments and temporary variables: 
+		tmp1: 	[ 
+	        ^ self inform:
+		          'Your VM is too old for this image...etc...
+	Receiver's instance variables: 
+		superclass: 	FileSystemStore
+		methodDict: 	a MethodDictionary(#=->DiskStore>>#= #accessTimeOf:->DiskStore>>#ac...etc...
+		format: 	65537
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	{UnixStore. WindowsStore}
+		name: 	#DiskStore
+		classPool: 	a Dictionary(#CurrentFS->a FileSystem #DefaultWorkingDirectory->nil ...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'FileSystem-Disk-Store'
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ 
+	Smalltalk vm interpreterSourceDate >= '2019-01-05' asDate ifFalse:
+		tmp1 ]
+	Arguments and temporary variables: 
+		arg1: 	Error
+		arg2: 	[ :arg1 | tmp1 value ]
+	Receiver's instance variables: 
+		outerContext: 	DiskStore class>>checkVMVersion
+		startpc: 	a CompiledBlock: [ 
+	Smalltalk vm interpreterSourceDate >= '2019-01-05...etc...
+		numArgs: 	0
+		receiver: 	DiskStore
+
+
+DiskStore class>>checkVMVersion
+	Receiver: DiskStore
+	Arguments and temporary variables: 
+		tmp1: 	[ 
+	        ^ self inform:
+		          'Your VM is too old for this image...etc...
+	Receiver's instance variables: 
+		superclass: 	FileSystemStore
+		methodDict: 	a MethodDictionary(#=->DiskStore>>#= #accessTimeOf:->DiskStore>>#ac...etc...
+		format: 	65537
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	{UnixStore. WindowsStore}
+		name: 	#DiskStore
+		classPool: 	a Dictionary(#CurrentFS->a FileSystem #DefaultWorkingDirectory->nil ...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'FileSystem-Disk-Store'
+
+
+DiskStore class>>startUp:
+	Receiver: DiskStore
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		superclass: 	FileSystemStore
+		methodDict: 	a MethodDictionary(#=->DiskStore>>#= #accessTimeOf:->DiskStore>>#ac...etc...
+		format: 	65537
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	{UnixStore. WindowsStore}
+		name: 	#DiskStore
+		classPool: 	a Dictionary(#CurrentFS->a FileSystem #DefaultWorkingDirectory->nil ...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'FileSystem-Disk-Store'
+
+
+ClassSessionHandler>>startup:
+	Receiver: a ClassSessionHandler(DiskStore)
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		registeredClassName: 	#DiskStore
+
+
+[ :arg2 | arg2 startup: arg1 ] in WorkingSession>>runStartup:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	true
+		arg2: 	a ClassSessionHandler(DiskStore)
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+[ arg2 value: arg3 ] in [ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(Sessio...etc...
+		arg2: 	a ClassSessionHandler(DiskStore)
+		arg3: 	[ :arg2 | arg2 startup: arg1 ]
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ arg2 value: arg3 ]
+	Arguments and temporary variables: 
+		arg1: 	Exception
+		arg2: 	[ :arg4 | self errorHandler handleError: arg4 ]
+	Receiver's instance variables: 
+		outerContext: 	[ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4...etc...
+		startpc: 	a CompiledBlock: [ arg2 value: arg3 ]
+		numArgs: 	0
+		receiver: 	a WorkingSession
+
+
+[ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(Sessio...etc...
+		arg2: 	[ :arg2 | arg2 startup: arg1 ]
+		arg3: 	a ClassSessionHandler(DiskStore)
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+Array(SequenceableCollection)>>do:
+	Receiver: an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(SessionAccessModeResolv...etc...
+	Arguments and temporary variables: 
+<<error during printing>>
+	Receiver's instance variables: 
+an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(SessionAccessModeResolv...etc...
+
+WorkingSession>>runList:do:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(Sessio...etc...
+		arg2: 	[ :arg2 | arg2 startup: arg1 ]
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+WorkingSession>>runStartup:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+WorkingSession>>start:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+SessionManager>>launchSnapshot:andQuit:
+	Receiver: a SessionManager
+	Arguments and temporary variables: 
+		arg1: 	true
+		arg2: 	true
+		tmp1: 	true
+		tmp2: 	true
+	Receiver's instance variables: 
+		currentSession: 	a WorkingSession
+		categories: 	an OrderedCollection(a SessionCategory(System) a SessionCategory(Ne...etc...
+		guiCategory: 	a SessionCategory(Graphical User Interface)
+		toolsCategory: 	a SessionCategory(Tools)
+		networkCategory: 	a SessionCategory(Network)
+		systemCategory: 	a SessionCategory(System)
+		userCategory: 	a SessionCategory(User)
+
+
+[ 
+	tmp3 := self launchSnapshot: arg1 andQuit: arg2.
+	tmp1 signal ] in SessionManager>>snapshot:andQuit:
+	Receiver: a SessionManager
+	Arguments and temporary variables: 
+<<error during printing>>
+	Receiver's instance variables: 
+		currentSession: 	a WorkingSession
+		categories: 	an OrderedCollection(a SessionCategory(System) a SessionCategory(Ne...etc...
+		guiCategory: 	a SessionCategory(Graphical User Interface)
+		toolsCategory: 	a SessionCategory(Tools)
+		networkCategory: 	a SessionCategory(Network)
+		systemCategory: 	a SessionCategory(System)
+		userCategory: 	a SessionCategory(User)
+
+
+[ 
+			  self value.
+			  Processor terminateRealActive ] in FullBlockClosure(BlockClosure)>>newProcess
+	Receiver: [ 
+	tmp3 := self launchSnapshot: arg1 andQuit: arg2.
+	tmp1 signal ]
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		outerContext: 	SessionManager>>snapshot:andQuit:
+		startpc: 	a CompiledBlock: [ 
+	tmp3 := self launchSnapshot: arg1 andQuit: arg2.
+...etc...
+		numArgs: 	0
+		receiver: 	a SessionManager
+
+
+
+--- The full stack ---
+StartupUIManager>>inform:
+DiskStore class(Object)>>inform:
+[ 
+	        ^ self inform:
+		          'Your VM is too old for this image. Please download the latest VM.' ] in DiskStore class>>checkVMVersion
+False>>ifFalse:
+[ 
+	Smalltalk vm interpreterSourceDate >= '2019-01-05' asDate ifFalse:
+		tmp1 ] in DiskStore class>>checkVMVersion
+FullBlockClosure(BlockClosure)>>on:do:
+DiskStore class>>checkVMVersion
+DiskStore class>>startUp:
+ClassSessionHandler>>startup:
+[ :arg2 | arg2 startup: arg1 ] in WorkingSession>>runStartup:
+[ arg2 value: arg3 ] in [ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+FullBlockClosure(BlockClosure)>>on:do:
+[ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+Array(SequenceableCollection)>>do:
+WorkingSession>>runList:do:
+WorkingSession>>runStartup:
+WorkingSession>>start:
+SessionManager>>launchSnapshot:andQuit:
+[ 
+	tmp3 := self launchSnapshot: arg1 andQuit: arg2.
+	tmp1 signal ] in SessionManager>>snapshot:andQuit:
+[ 
+			  self value.
+			  Processor terminateRealActive ] in FullBlockClosure(BlockClosure)>>newProcess
+-------------------------------------------------------------------------------
+
+THERE_BE_DRAGONS_HERE
+primitive #currentWorkingDirectoryPathWithBuffer: in Unix64Platform failed
+6 April 2022 10:45:00.864684 pm
+
+VM: unix - x86_64 - linux-gnu - CoInterpreter VMMaker.oscog-eem.2231 uuid: de62947a-7f40-4977-a232-e06a3a80c939 Jan  1 1980
+StackToRegisterMappingCogit VMMaker.oscog-eem.2227 uuid: 7ea146b4-39ce-4de7-afa3-a76ed1d1da35 Jan  1 1980
+VM: git.6a63f68a3dd4deb7c17dd2c7ac6e4dd4b0b6d937 https://github.com/pharo-project/pharo-vm $ Date: Tue May 30 19:41:27 2017 -0700 $ Plugins:  $Rev$
+
+Image: Pharo10.0.0 [Build information: Pharo-10.0.0+build.512.sha.bfb3a61094b9b7409b265d3f15a3d126b4ef597c (64 Bit)]
+
+Unix64Platform(ProtoObject)>>primitiveFailed:
+	Receiver: an Unix64Platform
+	Arguments and temporary variables: 
+		arg1: 	#currentWorkingDirectoryPathWithBuffer:
+	Receiver's instance variables: 
+an Unix64Platform
+
+Unix64Platform(ProtoObject)>>primitiveFailed
+	Receiver: an Unix64Platform
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+an Unix64Platform
+
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryPathWithBuffer:
+	Receiver: an Unix64Platform
+	Arguments and temporary variables: 
+		arg1: 	#[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0...etc...
+		ec: 	nil
+	Receiver's instance variables: 
+an Unix64Platform
+
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryPathWithBufferSize:
+	Receiver: an Unix64Platform
+	Arguments and temporary variables: 
+		arg1: 	4096
+		tmp1: 	#[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0...etc...
+	Receiver's instance variables: 
+an Unix64Platform
+
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryRawPath
+	Receiver: an Unix64Platform
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+an Unix64Platform
+
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryPath
+	Receiver: an Unix64Platform
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+an Unix64Platform
+
+DiskStore class>>defaultWorkingDirectory
+	Receiver: DiskStore
+	Arguments and temporary variables: 
+		tmp1: 	nil
+	Receiver's instance variables: 
+		superclass: 	FileSystemStore
+		methodDict: 	a MethodDictionary(#=->DiskStore>>#= #accessTimeOf:->DiskStore>>#ac...etc...
+		format: 	65537
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	{UnixStore. WindowsStore}
+		name: 	#DiskStore
+		classPool: 	a Dictionary(#CurrentFS->nil #DefaultWorkingDirectory->nil )
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'FileSystem-Disk-Store'
+
+
+DiskStore class>>startUp:
+	Receiver: DiskStore
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		superclass: 	FileSystemStore
+		methodDict: 	a MethodDictionary(#=->DiskStore>>#= #accessTimeOf:->DiskStore>>#ac...etc...
+		format: 	65537
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	{UnixStore. WindowsStore}
+		name: 	#DiskStore
+		classPool: 	a Dictionary(#CurrentFS->nil #DefaultWorkingDirectory->nil )
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'FileSystem-Disk-Store'
+
+
+ClassSessionHandler>>startup:
+	Receiver: a ClassSessionHandler(DiskStore)
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		registeredClassName: 	#DiskStore
+
+
+[ :arg2 | arg2 startup: arg1 ] in WorkingSession>>runStartup:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	true
+		arg2: 	a ClassSessionHandler(DiskStore)
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+[ arg2 value: arg3 ] in [ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(Sessio...etc...
+		arg2: 	a ClassSessionHandler(DiskStore)
+		arg3: 	[ :arg2 | arg2 startup: arg1 ]
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ arg2 value: arg3 ]
+	Arguments and temporary variables: 
+		arg1: 	Exception
+		arg2: 	[ :arg4 | self errorHandler handleError: arg4 ]
+	Receiver's instance variables: 
+		outerContext: 	[ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4...etc...
+		startpc: 	a CompiledBlock: [ arg2 value: arg3 ]
+		numArgs: 	0
+		receiver: 	a WorkingSession
+
+
+[ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(Sessio...etc...
+		arg2: 	[ :arg2 | arg2 startup: arg1 ]
+		arg3: 	a ClassSessionHandler(DiskStore)
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+Array(SequenceableCollection)>>do:
+	Receiver: an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(SessionAccessModeResolv...etc...
+	Arguments and temporary variables: 
+<<error during printing>>
+	Receiver's instance variables: 
+an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(SessionAccessModeResolv...etc...
+
+WorkingSession>>runList:do:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(Sessio...etc...
+		arg2: 	[ :arg2 | arg2 startup: arg1 ]
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+WorkingSession>>runStartup:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+WorkingSession>>start:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+SessionManager>>launchSnapshot:andQuit:
+	Receiver: a SessionManager
+	Arguments and temporary variables: 
+		arg1: 	true
+		arg2: 	true
+		tmp1: 	true
+		tmp2: 	true
+	Receiver's instance variables: 
+		currentSession: 	a WorkingSession
+		categories: 	an OrderedCollection(a SessionCategory(System) a SessionCategory(Ne...etc...
+		guiCategory: 	a SessionCategory(Graphical User Interface)
+		toolsCategory: 	a SessionCategory(Tools)
+		networkCategory: 	a SessionCategory(Network)
+		systemCategory: 	a SessionCategory(System)
+		userCategory: 	a SessionCategory(User)
+
+
+[ 
+	tmp3 := self launchSnapshot: arg1 andQuit: arg2.
+	tmp1 signal ] in SessionManager>>snapshot:andQuit:
+	Receiver: a SessionManager
+	Arguments and temporary variables: 
+<<error during printing>>
+	Receiver's instance variables: 
+		currentSession: 	a WorkingSession
+		categories: 	an OrderedCollection(a SessionCategory(System) a SessionCategory(Ne...etc...
+		guiCategory: 	a SessionCategory(Graphical User Interface)
+		toolsCategory: 	a SessionCategory(Tools)
+		networkCategory: 	a SessionCategory(Network)
+		systemCategory: 	a SessionCategory(System)
+		userCategory: 	a SessionCategory(User)
+
+
+[ 
+			  self value.
+			  Processor terminateRealActive ] in FullBlockClosure(BlockClosure)>>newProcess
+	Receiver: [ 
+	tmp3 := self launchSnapshot: arg1 andQuit: arg2.
+	tmp1 signal ]
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		outerContext: 	SessionManager>>snapshot:andQuit:
+		startpc: 	a CompiledBlock: [ 
+	tmp3 := self launchSnapshot: arg1 andQuit: arg2.
+...etc...
+		numArgs: 	0
+		receiver: 	a SessionManager
+
+
+
+--- The full stack ---
+Unix64Platform(ProtoObject)>>primitiveFailed:
+Unix64Platform(ProtoObject)>>primitiveFailed
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryPathWithBuffer:
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryPathWithBufferSize:
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryRawPath
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryPath
+DiskStore class>>defaultWorkingDirectory
+DiskStore class>>startUp:
+ClassSessionHandler>>startup:
+[ :arg2 | arg2 startup: arg1 ] in WorkingSession>>runStartup:
+[ arg2 value: arg3 ] in [ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+FullBlockClosure(BlockClosure)>>on:do:
+[ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+Array(SequenceableCollection)>>do:
+WorkingSession>>runList:do:
+WorkingSession>>runStartup:
+WorkingSession>>start:
+SessionManager>>launchSnapshot:andQuit:
+[ 
+	tmp3 := self launchSnapshot: arg1 andQuit: arg2.
+	tmp1 signal ] in SessionManager>>snapshot:andQuit:
+[ 
+			  self value.
+			  Processor terminateRealActive ] in FullBlockClosure(BlockClosure)>>newProcess
+-------------------------------------------------------------------------------
+
+THERE_BE_DRAGONS_HERE
+primitive #currentWorkingDirectoryPathWithBuffer: in Unix64Platform failed
+6 April 2022 10:45:00.881628 pm
+
+VM: unix - x86_64 - linux-gnu - CoInterpreter VMMaker.oscog-eem.2231 uuid: de62947a-7f40-4977-a232-e06a3a80c939 Jan  1 1980
+StackToRegisterMappingCogit VMMaker.oscog-eem.2227 uuid: 7ea146b4-39ce-4de7-afa3-a76ed1d1da35 Jan  1 1980
+VM: git.6a63f68a3dd4deb7c17dd2c7ac6e4dd4b0b6d937 https://github.com/pharo-project/pharo-vm $ Date: Tue May 30 19:41:27 2017 -0700 $ Plugins:  $Rev$
+
+Image: Pharo10.0.0 [Build information: Pharo-10.0.0+build.512.sha.bfb3a61094b9b7409b265d3f15a3d126b4ef597c (64 Bit)]
+
+Unix64Platform(ProtoObject)>>primitiveFailed:
+	Receiver: an Unix64Platform
+	Arguments and temporary variables: 
+		arg1: 	#currentWorkingDirectoryPathWithBuffer:
+	Receiver's instance variables: 
+an Unix64Platform
+
+Unix64Platform(ProtoObject)>>primitiveFailed
+	Receiver: an Unix64Platform
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+an Unix64Platform
+
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryPathWithBuffer:
+	Receiver: an Unix64Platform
+	Arguments and temporary variables: 
+		arg1: 	#[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0...etc...
+		ec: 	#'not found'
+	Receiver's instance variables: 
+an Unix64Platform
+
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryPathWithBufferSize:
+	Receiver: an Unix64Platform
+	Arguments and temporary variables: 
+		arg1: 	4096
+		tmp1: 	#[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0...etc...
+	Receiver's instance variables: 
+an Unix64Platform
+
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryRawPath
+	Receiver: an Unix64Platform
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+an Unix64Platform
+
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryPath
+	Receiver: an Unix64Platform
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+an Unix64Platform
+
+UnixStore class(DiskStore class)>>defaultWorkingDirectory
+	Receiver: UnixStore
+	Arguments and temporary variables: 
+		tmp1: 	nil
+	Receiver's instance variables: 
+		superclass: 	DiskStore
+		methodDict: 	a MethodDictionary(#checkName:fixErrors:->UnixStore>>#checkName:fix...etc...
+		format: 	65537
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	{MacStore. ReadOnlyUnixStore}
+		name: 	#UnixStore
+		classPool: 	a Dictionary()
+		sharedPools: 	nil
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'FileSystem-Disk-Store'
+
+
+UnixStore(DiskStore)>>defaultWorkingDirectory
+	Receiver: an UnixStore
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		maxFileNameLength: 	255
+
+
+FileSystem>>workingDirectoryPath
+	Receiver: a FileSystem
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		store: 	an UnixStore
+
+
+FileSystem>>resolvePath:
+	Receiver: a FileSystem
+	Arguments and temporary variables: 
+		arg1: 	Path / 'builds' / 'workspace' / 'uest_and_branch_Pipeline_Pharo10' / '64'...etc...
+	Receiver's instance variables: 
+		store: 	an UnixStore
+
+
+AbsolutePath(Path)>>asResolvedBy:
+	Receiver: Path / 'builds' / 'workspace' / 'uest_and_branch_Pipeline_Pharo10' / '64' / 'bootstrap-cac...etc...
+	Arguments and temporary variables: 
+		arg1: 	a FileSystem
+	Receiver's instance variables: 
+Path / 'builds' / 'workspace' / 'uest_and_branch_Pipeline_Pharo10' / '64' / 'bootstrap-cac...etc...
+
+FileSystem>>resolve:
+	Receiver: a FileSystem
+	Arguments and temporary variables: 
+		arg1: 	Path / 'builds' / 'workspace' / 'uest_and_branch_Pipeline_Pharo10' / '64'...etc...
+	Receiver's instance variables: 
+		store: 	an UnixStore
+
+
+FileSystem>>exists:
+	Receiver: a FileSystem
+	Arguments and temporary variables: 
+		arg1: 	Path / 'builds' / 'workspace' / 'uest_and_branch_Pipeline_Pharo10' / '64'...etc...
+	Receiver's instance variables: 
+		store: 	an UnixStore
+
+
+FileReference>>exists
+	Receiver: File @ /builds/workspace/uest_and_branch_Pipeline_Pharo10/64/bootstrap-cache/pharo-local/o...etc...
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		path: 	Path / 'builds' / 'workspace' / 'uest_and_branch_Pipeline_Pharo10' / '64'...etc...
+		filesystem: 	a FileSystem
+
+
+OmBlockFileStore(OmFileStore)>>isOutdated
+	Receiver: an OmBlockFileStore(Pharo10.0.0-0-64bit-bfb3a61.csvpaqlymlk6ztzfvynquele4)
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		globalName: 	'Pharo10.0.0-0-64bit-bfb3a61.csvpaqlymlk6ztzfvynquele4'
+		headReference: 	null:reference
+		fileReference: 	File @ /builds/workspace/uest_and_branch_Pipeline_Pharo10/64/boo...etc...
+		entryPositionsByLocalName: 	a Dictionary()
+		entryCount: 	0
+		writingDeferrer: 	an OmDeferrer
+		entryByLocalName: 	nil
+		mustRefresh: 	false
+		entryBuffer: 	nil
+		lock: 	nil
+		lastStreamPosition: 	nil
+		blocks: 	an OrderedCollection(an OmBlock(first entry: 1 positions: 0..131071))
+
+
+EpLostChangesDetector>>initializeWithLog:
+	Receiver: an EpLostChangesDetector
+	Arguments and temporary variables: 
+		arg1: 	an EpLog(an OmReference(Pharo10.0.0-0-64bit-bfb3a61.1qgxywjoq74j6eckyge73...etc...
+	Receiver's instance variables: 
+		hasLostChanges: 	nil
+		lastSessionFileStore: 	an OmBlockFileStore(Pharo10.0.0-0-64bit-bfb3a61.csvpaqlym...etc...
+
+
+EpLostChangesDetector class>>newWithLog:
+	Receiver: EpLostChangesDetector
+	Arguments and temporary variables: 
+		arg1: 	an EpLog(an OmReference(Pharo10.0.0-0-64bit-bfb3a61.1qgxywjoq74j6eckyge73...etc...
+		tmp2: 	an EpLostChangesDetector
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary(#hasLostChanges->EpLostChangesDetector>>#hasLost...etc...
+		format: 	65538
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#EpLostChangesDetector
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'EpiceaBrowsers-Integration'
+		enabled: 	true
+
+
+EpLostChangesDetector class>>new
+	Receiver: EpLostChangesDetector
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary(#hasLostChanges->EpLostChangesDetector>>#hasLost...etc...
+		format: 	65538
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#EpLostChangesDetector
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'EpiceaBrowsers-Integration'
+		enabled: 	true
+
+
+EpLostChangesDetector class>>startUp:
+	Receiver: EpLostChangesDetector
+	Arguments and temporary variables: 
+		arg1: 	true
+		tmp1: 	nil
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary(#hasLostChanges->EpLostChangesDetector>>#hasLost...etc...
+		format: 	65538
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#EpLostChangesDetector
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'EpiceaBrowsers-Integration'
+		enabled: 	true
+
+
+ClassSessionHandler>>startup:
+	Receiver: a ClassSessionHandler(EpLostChangesDetector)
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		registeredClassName: 	#EpLostChangesDetector
+
+
+[ :arg2 | arg2 startup: arg1 ] in WorkingSession>>runStartup:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	true
+		arg2: 	a ClassSessionHandler(EpLostChangesDetector)
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+[ arg2 value: arg3 ] in [ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(Sessio...etc...
+		arg2: 	a ClassSessionHandler(EpLostChangesDetector)
+		arg3: 	[ :arg2 | arg2 startup: arg1 ]
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ arg2 value: arg3 ]
+	Arguments and temporary variables: 
+		arg1: 	Exception
+		arg2: 	[ :arg4 | self errorHandler handleError: arg4 ]
+	Receiver's instance variables: 
+		outerContext: 	[ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4...etc...
+		startpc: 	a CompiledBlock: [ arg2 value: arg3 ]
+		numArgs: 	0
+		receiver: 	a WorkingSession
+
+
+[ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(Sessio...etc...
+		arg2: 	[ :arg2 | arg2 startup: arg1 ]
+		arg3: 	a ClassSessionHandler(EpLostChangesDetector)
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+Array(SequenceableCollection)>>do:
+	Receiver: an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(SessionAccessModeResolv...etc...
+	Arguments and temporary variables: 
+<<error during printing>>
+	Receiver's instance variables: 
+an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(SessionAccessModeResolv...etc...
+
+WorkingSession>>runList:do:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(Sessio...etc...
+		arg2: 	[ :arg2 | arg2 startup: arg1 ]
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+WorkingSession>>runStartup:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+WorkingSession>>start:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+SessionManager>>launchSnapshot:andQuit:
+	Receiver: a SessionManager
+	Arguments and temporary variables: 
+		arg1: 	true
+		arg2: 	true
+		tmp1: 	true
+		tmp2: 	true
+	Receiver's instance variables: 
+		currentSession: 	a WorkingSession
+		categories: 	an OrderedCollection(a SessionCategory(System) a SessionCategory(Ne...etc...
+		guiCategory: 	a SessionCategory(Graphical User Interface)
+		toolsCategory: 	a SessionCategory(Tools)
+		networkCategory: 	a SessionCategory(Network)
+		systemCategory: 	a SessionCategory(System)
+		userCategory: 	a SessionCategory(User)
+
+
+[ 
+	tmp3 := self launchSnapshot: arg1 andQuit: arg2.
+	tmp1 signal ] in SessionManager>>snapshot:andQuit:
+	Receiver: a SessionManager
+	Arguments and temporary variables: 
+<<error during printing>>
+	Receiver's instance variables: 
+		currentSession: 	a WorkingSession
+		categories: 	an OrderedCollection(a SessionCategory(System) a SessionCategory(Ne...etc...
+		guiCategory: 	a SessionCategory(Graphical User Interface)
+		toolsCategory: 	a SessionCategory(Tools)
+		networkCategory: 	a SessionCategory(Network)
+		systemCategory: 	a SessionCategory(System)
+		userCategory: 	a SessionCategory(User)
+
+
+[ 
+			  self value.
+			  Processor terminateRealActive ] in FullBlockClosure(BlockClosure)>>newProcess
+	Receiver: [ 
+	tmp3 := self launchSnapshot: arg1 andQuit: arg2.
+	tmp1 signal ]
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		outerContext: 	SessionManager>>snapshot:andQuit:
+		startpc: 	a CompiledBlock: [ 
+	tmp3 := self launchSnapshot: arg1 andQuit: arg2.
+...etc...
+		numArgs: 	0
+		receiver: 	a SessionManager
+
+
+
+--- The full stack ---
+Unix64Platform(ProtoObject)>>primitiveFailed:
+Unix64Platform(ProtoObject)>>primitiveFailed
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryPathWithBuffer:
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryPathWithBufferSize:
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryRawPath
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryPath
+UnixStore class(DiskStore class)>>defaultWorkingDirectory
+UnixStore(DiskStore)>>defaultWorkingDirectory
+FileSystem>>workingDirectoryPath
+FileSystem>>resolvePath:
+AbsolutePath(Path)>>asResolvedBy:
+FileSystem>>resolve:
+FileSystem>>exists:
+FileReference>>exists
+OmBlockFileStore(OmFileStore)>>isOutdated
+EpLostChangesDetector>>initializeWithLog:
+EpLostChangesDetector class>>newWithLog:
+EpLostChangesDetector class>>new
+EpLostChangesDetector class>>startUp:
+ClassSessionHandler>>startup:
+[ :arg2 | arg2 startup: arg1 ] in WorkingSession>>runStartup:
+[ arg2 value: arg3 ] in [ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+FullBlockClosure(BlockClosure)>>on:do:
+[ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+Array(SequenceableCollection)>>do:
+WorkingSession>>runList:do:
+WorkingSession>>runStartup:
+WorkingSession>>start:
+SessionManager>>launchSnapshot:andQuit:
+[ 
+	tmp3 := self launchSnapshot: arg1 andQuit: arg2.
+	tmp1 signal ] in SessionManager>>snapshot:andQuit:
+[ 
+			  self value.
+			  Processor terminateRealActive ] in FullBlockClosure(BlockClosure)>>newProcess
+-------------------------------------------------------------------------------
+
+THERE_BE_DRAGONS_HERE
+primitive #currentWorkingDirectoryPathWithBuffer: in Unix64Platform failed
+6 April 2022 10:45:00.898264 pm
+
+VM: unix - x86_64 - linux-gnu - CoInterpreter VMMaker.oscog-eem.2231 uuid: de62947a-7f40-4977-a232-e06a3a80c939 Jan  1 1980
+StackToRegisterMappingCogit VMMaker.oscog-eem.2227 uuid: 7ea146b4-39ce-4de7-afa3-a76ed1d1da35 Jan  1 1980
+VM: git.6a63f68a3dd4deb7c17dd2c7ac6e4dd4b0b6d937 https://github.com/pharo-project/pharo-vm $ Date: Tue May 30 19:41:27 2017 -0700 $ Plugins:  $Rev$
+
+Image: Pharo10.0.0 [Build information: Pharo-10.0.0+build.512.sha.bfb3a61094b9b7409b265d3f15a3d126b4ef597c (64 Bit)]
+
+Unix64Platform(ProtoObject)>>primitiveFailed:
+	Receiver: an Unix64Platform
+	Arguments and temporary variables: 
+		arg1: 	#currentWorkingDirectoryPathWithBuffer:
+	Receiver's instance variables: 
+an Unix64Platform
+
+Unix64Platform(ProtoObject)>>primitiveFailed
+	Receiver: an Unix64Platform
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+an Unix64Platform
+
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryPathWithBuffer:
+	Receiver: an Unix64Platform
+	Arguments and temporary variables: 
+		arg1: 	#[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0...etc...
+		ec: 	#'not found'
+	Receiver's instance variables: 
+an Unix64Platform
+
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryPathWithBufferSize:
+	Receiver: an Unix64Platform
+	Arguments and temporary variables: 
+		arg1: 	4096
+		tmp1: 	#[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0...etc...
+	Receiver's instance variables: 
+an Unix64Platform
+
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryRawPath
+	Receiver: an Unix64Platform
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+an Unix64Platform
+
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryPath
+	Receiver: an Unix64Platform
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+an Unix64Platform
+
+UnixStore class(DiskStore class)>>defaultWorkingDirectory
+	Receiver: UnixStore
+	Arguments and temporary variables: 
+		tmp1: 	nil
+	Receiver's instance variables: 
+		superclass: 	DiskStore
+		methodDict: 	a MethodDictionary(#checkName:fixErrors:->UnixStore>>#checkName:fix...etc...
+		format: 	65537
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	{MacStore. ReadOnlyUnixStore}
+		name: 	#UnixStore
+		classPool: 	a Dictionary()
+		sharedPools: 	nil
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'FileSystem-Disk-Store'
+
+
+UnixStore(DiskStore)>>defaultWorkingDirectory
+	Receiver: an UnixStore
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		maxFileNameLength: 	255
+
+
+FileSystem>>workingDirectoryPath
+	Receiver: a FileSystem
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		store: 	an UnixStore
+
+
+FileSystem>>resolvePath:
+	Receiver: a FileSystem
+	Arguments and temporary variables: 
+		arg1: 	Path / 'home' / 'hcssmith' / 'Downloads' / 'pharo64' / 'pharo-local' / 'o...etc...
+	Receiver's instance variables: 
+		store: 	an UnixStore
+
+
+AbsolutePath(Path)>>asResolvedBy:
+	Receiver: Path / 'home' / 'hcssmith' / 'Downloads' / 'pharo64' / 'pharo-local' / 'ombu-sessions' / '...etc...
+	Arguments and temporary variables: 
+		arg1: 	a FileSystem
+	Receiver's instance variables: 
+Path / 'home' / 'hcssmith' / 'Downloads' / 'pharo64' / 'pharo-local' / 'ombu-sessions' / '...etc...
+
+FileSystem>>resolve:
+	Receiver: a FileSystem
+	Arguments and temporary variables: 
+		arg1: 	Path / 'home' / 'hcssmith' / 'Downloads' / 'pharo64' / 'pharo-local' / 'o...etc...
+	Receiver's instance variables: 
+		store: 	an UnixStore
+
+
+FileSystem>>exists:
+	Receiver: a FileSystem
+	Arguments and temporary variables: 
+		arg1: 	Path / 'home' / 'hcssmith' / 'Downloads' / 'pharo64' / 'pharo-local' / 'o...etc...
+	Receiver's instance variables: 
+		store: 	an UnixStore
+
+
+FileReference>>exists
+	Receiver: File @ /home/hcssmith/Downloads/pharo64/pharo-local/ombu-sessions/Pharo10.0.0-0-64bit-bfb3...etc...
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		path: 	Path / 'home' / 'hcssmith' / 'Downloads' / 'pharo64' / 'pharo-local' / 'o...etc...
+		filesystem: 	a FileSystem
+
+
+FileReference(AbstractFileReference)>>ifExists:
+	Receiver: File @ /home/hcssmith/Downloads/pharo64/pharo-local/ombu-sessions/Pharo10.0.0-0-64bit-bfb3...etc...
+	Arguments and temporary variables: 
+		arg1: 	[ :arg2 | 
+		FileExists signalWith: arg2 ]
+	Receiver's instance variables: 
+		path: 	Path / 'home' / 'hcssmith' / 'Downloads' / 'pharo64' / 'pharo-local' / 'o...etc...
+		filesystem: 	a FileSystem
+
+
+OmSessionStore>>resetWithStoreNamed:
+	Receiver: an OmSessionStore
+	Arguments and temporary variables: 
+		arg1: 	'Pharo10.0.0-0-64bit-bfb3a61.9w4h850f7e5donp406czyontp'
+	Receiver's instance variables: 
+		currentSession: 	a WorkingSession
+		currentImagePathString: 	'/builds/workspace/uest_and_branch_Pipeline_Pharo10/64/...etc...
+		currentStore: 	an OmBlockFileStore(Pharo10.0.0-0-64bit-bfb3a61.csvpaqlymlk6ztzfv...etc...
+		baseLocator: 	{localDirectory}/ombu-sessions
+		announcer: 	an Announcer
+		writingDeferDuration: 	nil
+		headReference: 	an OmReference(Pharo10.0.0-0-64bit-bfb3a61.1qgxywjoq74j6eckyge73...etc...
+		storeNameStrategy: 	nil
+
+
+OmSessionStore>>resetWithNextStoreName
+	Receiver: an OmSessionStore
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		currentSession: 	a WorkingSession
+		currentImagePathString: 	'/builds/workspace/uest_and_branch_Pipeline_Pharo10/64/...etc...
+		currentStore: 	an OmBlockFileStore(Pharo10.0.0-0-64bit-bfb3a61.csvpaqlymlk6ztzfv...etc...
+		baseLocator: 	{localDirectory}/ombu-sessions
+		announcer: 	an Announcer
+		writingDeferDuration: 	nil
+		headReference: 	an OmReference(Pharo10.0.0-0-64bit-bfb3a61.1qgxywjoq74j6eckyge73...etc...
+		storeNameStrategy: 	nil
+
+
+OmSessionStore>>store
+	Receiver: an OmSessionStore
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		currentSession: 	a WorkingSession
+		currentImagePathString: 	'/builds/workspace/uest_and_branch_Pipeline_Pharo10/64/...etc...
+		currentStore: 	an OmBlockFileStore(Pharo10.0.0-0-64bit-bfb3a61.csvpaqlymlk6ztzfv...etc...
+		baseLocator: 	{localDirectory}/ombu-sessions
+		announcer: 	an Announcer
+		writingDeferDuration: 	nil
+		headReference: 	an OmReference(Pharo10.0.0-0-64bit-bfb3a61.1qgxywjoq74j6eckyge73...etc...
+		storeNameStrategy: 	nil
+
+
+[ :arg1 | arg1 store ] in OmSessionStore class>>startUp
+	Receiver: OmSessionStore
+	Arguments and temporary variables: 
+		arg1: 	an OmSessionStore
+	Receiver's instance variables: 
+		superclass: 	OmStore
+		methodDict: 	a MethodDictionary(#announcer->OmSessionStore>>#announcer #baseLoca...etc...
+		format: 	65544
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#OmSessionStore
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Ombu-Stores'
+		storeNameStrategy: 	an OmRandomSuffixStrategy
+		defaultBaseLocator: 	{localDirectory}/ombu-sessions
+		registry: 	a WeakSet(an OmSessionStore)
+
+
+WeakSet>>do:
+	Receiver: a WeakSet(an OmSessionStore)
+	Arguments and temporary variables: 
+<<error during printing>>
+	Receiver's instance variables: 
+		tally: 	1
+		array: 	a WeakArray(an Object an OmSessionStore an Object an Object an Object an...etc...
+		flag: 	an Object
+
+
+OmSessionStore class>>startUp
+	Receiver: OmSessionStore
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		superclass: 	OmStore
+		methodDict: 	a MethodDictionary(#announcer->OmSessionStore>>#announcer #baseLoca...etc...
+		format: 	65544
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#OmSessionStore
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Ombu-Stores'
+		storeNameStrategy: 	an OmRandomSuffixStrategy
+		defaultBaseLocator: 	{localDirectory}/ombu-sessions
+		registry: 	a WeakSet(an OmSessionStore)
+
+
+OmSessionStore class(Behavior)>>startUp:
+	Receiver: OmSessionStore
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		superclass: 	OmStore
+		methodDict: 	a MethodDictionary(#announcer->OmSessionStore>>#announcer #baseLoca...etc...
+		format: 	65544
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#OmSessionStore
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Ombu-Stores'
+		storeNameStrategy: 	an OmRandomSuffixStrategy
+		defaultBaseLocator: 	{localDirectory}/ombu-sessions
+		registry: 	a WeakSet(an OmSessionStore)
+
+
+ClassSessionHandler>>startup:
+	Receiver: a ClassSessionHandler(OmSessionStore)
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		registeredClassName: 	#OmSessionStore
+
+
+[ :arg2 | arg2 startup: arg1 ] in WorkingSession>>runStartup:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	true
+		arg2: 	a ClassSessionHandler(OmSessionStore)
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+[ arg2 value: arg3 ] in [ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(Sessio...etc...
+		arg2: 	a ClassSessionHandler(OmSessionStore)
+		arg3: 	[ :arg2 | arg2 startup: arg1 ]
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ arg2 value: arg3 ]
+	Arguments and temporary variables: 
+		arg1: 	Exception
+		arg2: 	[ :arg4 | self errorHandler handleError: arg4 ]
+	Receiver's instance variables: 
+		outerContext: 	[ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4...etc...
+		startpc: 	a CompiledBlock: [ arg2 value: arg3 ]
+		numArgs: 	0
+		receiver: 	a WorkingSession
+
+
+[ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(Sessio...etc...
+		arg2: 	[ :arg2 | arg2 startup: arg1 ]
+		arg3: 	a ClassSessionHandler(OmSessionStore)
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+Array(SequenceableCollection)>>do:
+	Receiver: an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(SessionAccessModeResolv...etc...
+	Arguments and temporary variables: 
+<<error during printing>>
+	Receiver's instance variables: 
+an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(SessionAccessModeResolv...etc...
+
+WorkingSession>>runList:do:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(Sessio...etc...
+		arg2: 	[ :arg2 | arg2 startup: arg1 ]
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+WorkingSession>>runStartup:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+WorkingSession>>start:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+SessionManager>>launchSnapshot:andQuit:
+	Receiver: a SessionManager
+	Arguments and temporary variables: 
+		arg1: 	true
+		arg2: 	true
+		tmp1: 	true
+		tmp2: 	true
+	Receiver's instance variables: 
+		currentSession: 	a WorkingSession
+		categories: 	an OrderedCollection(a SessionCategory(System) a SessionCategory(Ne...etc...
+		guiCategory: 	a SessionCategory(Graphical User Interface)
+		toolsCategory: 	a SessionCategory(Tools)
+		networkCategory: 	a SessionCategory(Network)
+		systemCategory: 	a SessionCategory(System)
+		userCategory: 	a SessionCategory(User)
+
+
+[ 
+	tmp3 := self launchSnapshot: arg1 andQuit: arg2.
+	tmp1 signal ] in SessionManager>>snapshot:andQuit:
+	Receiver: a SessionManager
+	Arguments and temporary variables: 
+<<error during printing>>
+	Receiver's instance variables: 
+		currentSession: 	a WorkingSession
+		categories: 	an OrderedCollection(a SessionCategory(System) a SessionCategory(Ne...etc...
+		guiCategory: 	a SessionCategory(Graphical User Interface)
+		toolsCategory: 	a SessionCategory(Tools)
+		networkCategory: 	a SessionCategory(Network)
+		systemCategory: 	a SessionCategory(System)
+		userCategory: 	a SessionCategory(User)
+
+
+[ 
+			  self value.
+			  Processor terminateRealActive ] in FullBlockClosure(BlockClosure)>>newProcess
+	Receiver: [ 
+	tmp3 := self launchSnapshot: arg1 andQuit: arg2.
+	tmp1 signal ]
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		outerContext: 	SessionManager>>snapshot:andQuit:
+		startpc: 	a CompiledBlock: [ 
+	tmp3 := self launchSnapshot: arg1 andQuit: arg2.
+...etc...
+		numArgs: 	0
+		receiver: 	a SessionManager
+
+
+
+--- The full stack ---
+Unix64Platform(ProtoObject)>>primitiveFailed:
+Unix64Platform(ProtoObject)>>primitiveFailed
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryPathWithBuffer:
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryPathWithBufferSize:
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryRawPath
+Unix64Platform(OSPlatform)>>currentWorkingDirectoryPath
+UnixStore class(DiskStore class)>>defaultWorkingDirectory
+UnixStore(DiskStore)>>defaultWorkingDirectory
+FileSystem>>workingDirectoryPath
+FileSystem>>resolvePath:
+AbsolutePath(Path)>>asResolvedBy:
+FileSystem>>resolve:
+FileSystem>>exists:
+FileReference>>exists
+FileReference(AbstractFileReference)>>ifExists:
+OmSessionStore>>resetWithStoreNamed:
+OmSessionStore>>resetWithNextStoreName
+OmSessionStore>>store
+[ :arg1 | arg1 store ] in OmSessionStore class>>startUp
+WeakSet>>do:
+OmSessionStore class>>startUp
+OmSessionStore class(Behavior)>>startUp:
+ClassSessionHandler>>startup:
+[ :arg2 | arg2 startup: arg1 ] in WorkingSession>>runStartup:
+[ arg2 value: arg3 ] in [ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+FullBlockClosure(BlockClosure)>>on:do:
+[ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+Array(SequenceableCollection)>>do:
+WorkingSession>>runList:do:
+WorkingSession>>runStartup:
+WorkingSession>>start:
+SessionManager>>launchSnapshot:andQuit:
+[ 
+	tmp3 := self launchSnapshot: arg1 andQuit: arg2.
+	tmp1 signal ] in SessionManager>>snapshot:andQuit:
+[ 
+			  self value.
+			  Processor terminateRealActive ] in FullBlockClosure(BlockClosure)>>newProcess
+-------------------------------------------------------------------------------
+
+THERE_BE_DRAGONS_HERE
+FFICalloutMethodBuilder had the subclass responsibility to implement #createFFICalloutLiteralFromSpec:
+6 April 2022 10:45:00.920169 pm
+
+VM: unix - x86_64 - linux-gnu - CoInterpreter VMMaker.oscog-eem.2231 uuid: de62947a-7f40-4977-a232-e06a3a80c939 Jan  1 1980
+StackToRegisterMappingCogit VMMaker.oscog-eem.2227 uuid: 7ea146b4-39ce-4de7-afa3-a76ed1d1da35 Jan  1 1980
+VM: git.6a63f68a3dd4deb7c17dd2c7ac6e4dd4b0b6d937 https://github.com/pharo-project/pharo-vm $ Date: Tue May 30 19:41:27 2017 -0700 $ Plugins:  $Rev$
+
+Image: Pharo10.0.0 [Build information: Pharo-10.0.0+build.512.sha.bfb3a61094b9b7409b265d3f15a3d126b4ef597c (64 Bit)]
+
+FFICalloutMethodBuilder(Object)>>subclassResponsibility
+	Receiver: a FFICalloutMethodBuilder
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		calloutAPI: 	a FFICalloutAPI
+		requestor: 	a FFICallout
+		sender: 	LGitLibrary>>libgit2_init
+		signature: 	#(#int #git_libgit2_init #())
+		functionResolutionStrategies: 	an OrderedCollection(a FFICallbackFunctionResolut...etc...
+		library: 	a LGitLibrary
+		fixedArgumentCount: 	0
+
+
+FFICalloutMethodBuilder>>createFFICalloutLiteralFromSpec:
+	Receiver: a FFICalloutMethodBuilder
+	Arguments and temporary variables: 
+		arg1: 	a FFIFunctionSpec
+	Receiver's instance variables: 
+		calloutAPI: 	a FFICalloutAPI
+		requestor: 	a FFICallout
+		sender: 	LGitLibrary>>libgit2_init
+		signature: 	#(#int #git_libgit2_init #())
+		functionResolutionStrategies: 	an OrderedCollection(a FFICallbackFunctionResolut...etc...
+		library: 	a LGitLibrary
+		fixedArgumentCount: 	0
+
+
+FFICalloutMethodBuilder>>generateFFICallout:spec:ffiLibrary:
+	Receiver: a FFICalloutMethodBuilder
+	Arguments and temporary variables: 
+		arg1: 	an IRBuilder
+		arg2: 	a FFIFunctionSpec
+		arg3: 	a LGitLibrary
+	Receiver's instance variables: 
+		calloutAPI: 	a FFICalloutAPI
+		requestor: 	a FFICallout
+		sender: 	LGitLibrary>>libgit2_init
+		signature: 	#(#int #git_libgit2_init #())
+		functionResolutionStrategies: 	an OrderedCollection(a FFICallbackFunctionResolut...etc...
+		library: 	a LGitLibrary
+		fixedArgumentCount: 	0
+
+
+[ :arg2 | 
+		        | tmp5 |
+		        sender methodProperties ifNotNil: [ 
+			        tmp4 := sender methodProperties copy.
+			        tmp4 method: nil.
+			        arg2 properties: tmp4 ].
+		        arg2
+			        numArgs: self argumentNames size;
+			        addTemps: (self argumentNames copyWith: #result).
+		        tmp2 preMethodBuildContext: sender builder: arg2 spec: arg1.
+		        tmp5 := self
+			                generateFFICallout: arg2
+			                spec: arg1
+			                ffiLibrary: tmp2.
+		        tmp2 postMethodBuildContext: sender builder: arg2 spec: arg1.
+		        tmp5 ] in FFICalloutMethodBuilder>>generateMethodFromSpec:
+	Receiver: a FFICalloutMethodBuilder
+	Arguments and temporary variables: 
+<<error during printing>>
+	Receiver's instance variables: 
+		calloutAPI: 	a FFICalloutAPI
+		requestor: 	a FFICallout
+		sender: 	LGitLibrary>>libgit2_init
+		signature: 	#(#int #git_libgit2_init #())
+		functionResolutionStrategies: 	an OrderedCollection(a FFICallbackFunctionResolut...etc...
+		library: 	a LGitLibrary
+		fixedArgumentCount: 	0
+
+
+IRBuilder class>>buildIR:
+	Receiver: IRBuilder
+	Arguments and temporary variables: 
+		arg1: 	[ :arg2 | 
+		        | tmp5 |
+		        sender methodProperties ifNotNil:...etc...
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary(#add:->IRBuilder>>#add: #addBlockReturnTopIfRequ...etc...
+		format: 	65543
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	{IRReconstructor}
+		name: 	#IRBuilder
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'OpalCompiler-Core-IR-Manipulation'
+
+
+FFICalloutMethodBuilder>>generateMethodFromSpec:
+	Receiver: a FFICalloutMethodBuilder
+	Arguments and temporary variables: 
+		tmp4: 	an AdditionalMethodState (730449664)
+		arg1: 	a FFIFunctionSpec
+		tmp1: 	nil
+		tmp2: 	a LGitLibrary
+	Receiver's instance variables: 
+		calloutAPI: 	a FFICalloutAPI
+		requestor: 	a FFICallout
+		sender: 	LGitLibrary>>libgit2_init
+		signature: 	#(#int #git_libgit2_init #())
+		functionResolutionStrategies: 	an OrderedCollection(a FFICallbackFunctionResolut...etc...
+		library: 	a LGitLibrary
+		fixedArgumentCount: 	0
+
+
+FFICalloutMethodBuilder>>generate
+	Receiver: a FFICalloutMethodBuilder
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		calloutAPI: 	a FFICalloutAPI
+		requestor: 	a FFICallout
+		sender: 	LGitLibrary>>libgit2_init
+		signature: 	#(#int #git_libgit2_init #())
+		functionResolutionStrategies: 	an OrderedCollection(a FFICallbackFunctionResolut...etc...
+		library: 	a LGitLibrary
+		fixedArgumentCount: 	0
+
+
+FFICalloutMethodBuilder>>build:
+	Receiver: a FFICalloutMethodBuilder
+	Arguments and temporary variables: 
+		arg1: 	[ :arg3 | 
+		        arg3
+			        signature: arg1;
+			        sender: ...etc...
+	Receiver's instance variables: 
+		calloutAPI: 	a FFICalloutAPI
+		requestor: 	a FFICallout
+		sender: 	LGitLibrary>>libgit2_init
+		signature: 	#(#int #git_libgit2_init #())
+		functionResolutionStrategies: 	an OrderedCollection(a FFICallbackFunctionResolut...etc...
+		library: 	a LGitLibrary
+		fixedArgumentCount: 	0
+
+
+FFICalloutAPI>>function:library:
+	Receiver: a FFICalloutAPI
+	Arguments and temporary variables: 
+		arg1: 	#(#int #git_libgit2_init #())
+		arg2: 	a LGitLibrary
+		tmp1: 	LGitLibrary>>libgit2_init
+		tmp2: 	nil
+		tmp3: 	#ffiCall:
+	Receiver's instance variables: 
+		options: 	#()
+		callingConvention: 	#cdecl
+		senderContext: 	LGitLibrary>>libgit2_init
+		uFFIEntryPointContext: 	nil
+		fixedArgumentCount: 	0
+
+
+FFICalloutAPI>>function:module:
+	Receiver: a FFICalloutAPI
+	Arguments and temporary variables: 
+		arg1: 	#(#int #git_libgit2_init #())
+		arg2: 	a LGitLibrary
+	Receiver's instance variables: 
+		options: 	#()
+		callingConvention: 	#cdecl
+		senderContext: 	LGitLibrary>>libgit2_init
+		uFFIEntryPointContext: 	nil
+		fixedArgumentCount: 	0
+
+
+LGitLibrary(FFILibrary)>>ffiCall:
+	Receiver: a LGitLibrary
+	Arguments and temporary variables: 
+<<error during printing>>
+	Receiver's instance variables: 
+		initialized: 	false
+
+
+LGitLibrary>>libgit2_init
+	Receiver: a LGitLibrary
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		initialized: 	false
+
+
+[ 
+	self
+		libgit2_init;
+		recordInitializationSuccess ] in LGitLibrary>>initializeLibGit2
+	Receiver: a LGitLibrary
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		initialized: 	false
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ 
+	self
+		libgit2_init;
+		recordInitializationSuccess ]
+	Arguments and temporary variables: 
+		arg1: 	Error
+		arg2: 	[ :arg1 | 
+			self recordInitializationFailure.
+			arg1 pass ]
+	Receiver's instance variables: 
+		outerContext: 	LGitLibrary>>initializeLibGit2
+		startpc: 	a CompiledBlock: [ 
+	self
+		libgit2_init;
+		recordInitializationSucces...etc...
+		numArgs: 	0
+		receiver: 	a LGitLibrary
+
+
+LGitLibrary>>initializeLibGit2
+	Receiver: a LGitLibrary
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		initialized: 	false
+
+
+LGitLibrary class>>startUp:
+	Receiver: LGitLibrary
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		superclass: 	FFILibrary
+		methodDict: 	a MethodDictionary(#fetchOptionsStructureClass->LGitLibrary>>#fetch...etc...
+		format: 	65537
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#LGitLibrary
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'LibGit-Core-FFI-Handling'
+		uniqueInstance: 	a LGitLibrary
+
+
+ClassSessionHandler>>startup:
+	Receiver: a ClassSessionHandler(LGitLibrary)
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		registeredClassName: 	#LGitLibrary
+
+
+[ :arg2 | arg2 startup: arg1 ] in WorkingSession>>runStartup:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	true
+		arg2: 	a ClassSessionHandler(LGitLibrary)
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+[ arg2 value: arg3 ] in [ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(Sessio...etc...
+		arg2: 	a ClassSessionHandler(LGitLibrary)
+		arg3: 	[ :arg2 | arg2 startup: arg1 ]
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ arg2 value: arg3 ]
+	Arguments and temporary variables: 
+		arg1: 	Exception
+		arg2: 	[ :arg4 | self errorHandler handleError: arg4 ]
+	Receiver's instance variables: 
+		outerContext: 	[ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4...etc...
+		startpc: 	a CompiledBlock: [ arg2 value: arg3 ]
+		numArgs: 	0
+		receiver: 	a WorkingSession
+
+
+[ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(Sessio...etc...
+		arg2: 	[ :arg2 | arg2 startup: arg1 ]
+		arg3: 	a ClassSessionHandler(LGitLibrary)
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+Array(SequenceableCollection)>>do:
+	Receiver: an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(SessionAccessModeResolv...etc...
+	Arguments and temporary variables: 
+<<error during printing>>
+	Receiver's instance variables: 
+an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(SessionAccessModeResolv...etc...
+
+WorkingSession>>runList:do:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	an Array(a ClassSessionHandler(SmallInteger) a ClassSessionHandler(Sessio...etc...
+		arg2: 	[ :arg2 | arg2 startup: arg1 ]
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+WorkingSession>>runStartup:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+WorkingSession>>start:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+		UIManager default inform: arg...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+SessionManager>>launchSnapshot:andQuit:
+	Receiver: a SessionManager
+	Arguments and temporary variables: 
+		arg1: 	true
+		arg2: 	true
+		tmp1: 	true
+		tmp2: 	true
+	Receiver's instance variables: 
+		currentSession: 	a WorkingSession
+		categories: 	an OrderedCollection(a SessionCategory(System) a SessionCategory(Ne...etc...
+		guiCategory: 	a SessionCategory(Graphical User Interface)
+		toolsCategory: 	a SessionCategory(Tools)
+		networkCategory: 	a SessionCategory(Network)
+		systemCategory: 	a SessionCategory(System)
+		userCategory: 	a SessionCategory(User)
+
+
+[ 
+	tmp3 := self launchSnapshot: arg1 andQuit: arg2.
+	tmp1 signal ] in SessionManager>>snapshot:andQuit:
+	Receiver: a SessionManager
+	Arguments and temporary variables: 
+<<error during printing>>
+	Receiver's instance variables: 
+		currentSession: 	a WorkingSession
+		categories: 	an OrderedCollection(a SessionCategory(System) a SessionCategory(Ne...etc...
+		guiCategory: 	a SessionCategory(Graphical User Interface)
+		toolsCategory: 	a SessionCategory(Tools)
+		networkCategory: 	a SessionCategory(Network)
+		systemCategory: 	a SessionCategory(System)
+		userCategory: 	a SessionCategory(User)
+
+
+[ 
+			  self value.
+			  Processor terminateRealActive ] in FullBlockClosure(BlockClosure)>>newProcess
+	Receiver: [ 
+	tmp3 := self launchSnapshot: arg1 andQuit: arg2.
+	tmp1 signal ]
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		outerContext: 	SessionManager>>snapshot:andQuit:
+		startpc: 	a CompiledBlock: [ 
+	tmp3 := self launchSnapshot: arg1 andQuit: arg2.
+...etc...
+		numArgs: 	0
+		receiver: 	a SessionManager
+
+
+
+--- The full stack ---
+FFICalloutMethodBuilder(Object)>>subclassResponsibility
+FFICalloutMethodBuilder>>createFFICalloutLiteralFromSpec:
+FFICalloutMethodBuilder>>generateFFICallout:spec:ffiLibrary:
+[ :arg2 | 
+		        | tmp5 |
+		        sender methodProperties ifNotNil: [ 
+			        tmp4 := sender methodProperties copy.
+			        tmp4 method: nil.
+			        arg2 properties: tmp4 ].
+		        arg2
+			        numArgs: self argumentNames size;
+			        addTemps: (self argumentNames copyWith: #result).
+		        tmp2 preMethodBuildContext: sender builder: arg2 spec: arg1.
+		        tmp5 := self
+			                generateFFICallout: arg2
+			                spec: arg1
+			                ffiLibrary: tmp2.
+		        tmp2 postMethodBuildContext: sender builder: arg2 spec: arg1.
+		        tmp5 ] in FFICalloutMethodBuilder>>generateMethodFromSpec:
+IRBuilder class>>buildIR:
+FFICalloutMethodBuilder>>generateMethodFromSpec:
+FFICalloutMethodBuilder>>generate
+FFICalloutMethodBuilder>>build:
+FFICalloutAPI>>function:library:
+FFICalloutAPI>>function:module:
+LGitLibrary(FFILibrary)>>ffiCall:
+LGitLibrary>>libgit2_init
+[ 
+	self
+		libgit2_init;
+		recordInitializationSuccess ] in LGitLibrary>>initializeLibGit2
+FullBlockClosure(BlockClosure)>>on:do:
+LGitLibrary>>initializeLibGit2
+LGitLibrary class>>startUp:
+ClassSessionHandler>>startup:
+[ :arg2 | arg2 startup: arg1 ] in WorkingSession>>runStartup:
+[ arg2 value: arg3 ] in [ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+FullBlockClosure(BlockClosure)>>on:do:
+[ :arg3 | 
+		[ arg2 value: arg3 ]
+			on: Exception
+			do: [ :arg4 | self errorHandler handleError: arg4 ] ] in WorkingSession>>runList:do:
+Array(SequenceableCollection)>>do:
+WorkingSession>>runList:do:
+WorkingSession>>runStartup:
+WorkingSession>>start:
+SessionManager>>launchSnapshot:andQuit:
+[ 
+	tmp3 := self launchSnapshot: arg1 andQuit: arg2.
+	tmp1 signal ] in SessionManager>>snapshot:andQuit:
+[ 
+			  self value.
+			  Processor terminateRealActive ] in FullBlockClosure(BlockClosure)>>newProcess
+-------------------------------------------------------------------------------
+
+THERE_BE_DRAGONS_HERE
+PrimitiveFailed: primitive #fileDescriptorType: in File class failed
+6 April 2022 10:45:00.973358 pm
+
+VM: unix - x86_64 - linux-gnu - CoInterpreter VMMaker.oscog-eem.2231 uuid: de62947a-7f40-4977-a232-e06a3a80c939 Jan  1 1980
+StackToRegisterMappingCogit VMMaker.oscog-eem.2227 uuid: 7ea146b4-39ce-4de7-afa3-a76ed1d1da35 Jan  1 1980
+VM: git.6a63f68a3dd4deb7c17dd2c7ac6e4dd4b0b6d937 https://github.com/pharo-project/pharo-vm $ Date: Tue May 30 19:41:27 2017 -0700 $ Plugins:  $Rev$
+
+Image: Pharo10.0.0 [Build information: Pharo-10.0.0+build.512.sha.bfb3a61094b9b7409b265d3f15a3d126b4ef597c (64 Bit)]
+
+File class(ProtoObject)>>primitiveFailed:
+	Receiver: File
+	Arguments and temporary variables: 
+		arg1: 	#fileDescriptorType:
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary(#basename->File>>#basename #basicOpenForWrite:->...etc...
+		format: 	65537
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#File
+		classPool: 	a Dictionary(#Registry->a WeakRegistry(<this WeakRegistry is locked>...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Core'
+
+
+File class(ProtoObject)>>primitiveFailed
+	Receiver: File
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary(#basename->File>>#basename #basicOpenForWrite:->...etc...
+		format: 	65537
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#File
+		classPool: 	a Dictionary(#Registry->a WeakRegistry(<this WeakRegistry is locked>...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Core'
+
+
+File class>>fileDescriptorType:
+	Receiver: File
+	Arguments and temporary variables: 
+		arg1: 	1
+		error: 	#'not found'
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary(#basename->File>>#basename #basicOpenForWrite:->...etc...
+		format: 	65537
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#File
+		classPool: 	a Dictionary(#Registry->a WeakRegistry(<this WeakRegistry is locked>...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Core'
+
+
+File class>>fileDescriptorIsAvailable:
+	Receiver: File
+	Arguments and temporary variables: 
+		arg1: 	1
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary(#basename->File>>#basename #basicOpenForWrite:->...etc...
+		format: 	65537
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#File
+		classPool: 	a Dictionary(#Registry->a WeakRegistry(<this WeakRegistry is locked>...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Core'
+
+
+Stdio class>>standardIOStreamNamed:forWrite:
+	Receiver: Stdio
+	Arguments and temporary variables: 
+		arg1: 	#stdout
+		arg2: 	true
+		tmp1: 	#[247 135 113 125 0 0 0 0 32 165 182 193 206 127 0 0 0 0 0 0 0 0 0 0 1 2 ...etc...
+		tmp2: 	2
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary()
+		format: 	0
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#Stdio
+		classPool: 	a Dictionary(#CreateWriteStreamBlock->nil #Stderr->nil #Stdin->nil #...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Core'
+
+
+Stdio class>>stdout
+	Receiver: Stdio
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary()
+		format: 	0
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#Stdio
+		classPool: 	a Dictionary(#CreateWriteStreamBlock->nil #Stderr->nil #Stdin->nil #...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Core'
+
+
+VTermOutputDriver class>>stdout
+	Receiver: VTermOutputDriver
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary(#'<<'->VTermOutputDriver>>#'<<' #background256:-...etc...
+		format: 	65542
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#VTermOutputDriver
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'System-CommandLine-VTerm-Driver'
+
+
+BasicCommandLineHandler(CommandLineHandler)>>initializeStdout
+	Receiver: a BasicCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	nil
+		session: 	a WorkingSession
+		stdout: 	nil
+		stderr: 	nil
+
+
+BasicCommandLineHandler(CommandLineHandler)>>initialize
+	Receiver: a BasicCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	nil
+		session: 	a WorkingSession
+		stdout: 	nil
+		stderr: 	nil
+
+
+BasicCommandLineHandler>>initialize
+	Receiver: a BasicCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	nil
+		session: 	a WorkingSession
+		stdout: 	nil
+		stderr: 	nil
+
+
+BasicCommandLineHandler class(Behavior)>>new
+	Receiver: BasicCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		superclass: 	CommandLineHandler
+		methodDict: 	a MethodDictionary(#activate->BasicCommandLineHandler>>#activate #a...etc...
+		format: 	65540
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	{PharoCommandLineHandler}
+		name: 	#BasicCommandLineHandler
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'System-BasicCommandLineHandler-Base'
+
+
+[ self new activate ] in BasicCommandLineHandler class>>startUp:
+	Receiver: BasicCommandLineHandler
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		superclass: 	CommandLineHandler
+		methodDict: 	a MethodDictionary(#activate->BasicCommandLineHandler>>#activate #a...etc...
+		format: 	65540
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	{PharoCommandLineHandler}
+		name: 	#BasicCommandLineHandler
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'System-BasicCommandLineHandler-Base'
+
+
+FullBlockClosure(BlockClosure)>>cull:
+	Receiver: [ self new activate ]
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		outerContext: 	BasicCommandLineHandler class>>startUp:
+		startpc: 	a CompiledBlock: [ self new activate ]
+		numArgs: 	0
+		receiver: 	BasicCommandLineHandler
+
+
+WorkingSession>>executeDeferredStartupActions:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	true
+		tmp1: 	[ self new activate ]
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+				self uiManager handleError:...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+SessionManager>>snapshot:andQuit:
+	Receiver: a SessionManager
+	Arguments and temporary variables: 
+		tmp3: 	true
+		arg1: 	true
+		arg2: 	true
+		tmp1: 	a Semaphore()
+	Receiver's instance variables: 
+		currentSession: 	a WorkingSession
+		categories: 	an OrderedCollection(a SessionCategory(System) a SessionCategory(Ne...etc...
+		guiCategory: 	a SessionCategory(Graphical User Interface)
+		toolsCategory: 	a SessionCategory(Tools)
+		networkCategory: 	a SessionCategory(Network)
+		systemCategory: 	a SessionCategory(System)
+		userCategory: 	a SessionCategory(User)
+
+
+[ 
+		^ SessionManager default snapshot: arg1 andQuit: arg2 ] in SmalltalkImage>>snapshot:andQuit:
+	Receiver: Smalltalk
+	Arguments and temporary variables: 
+		arg1: 	true
+		arg2: 	true
+	Receiver's instance variables: 
+		globals: 	a SystemDictionary(lots of globals)
+		specialObjectsArray: 	an Array(nil false true #Processor->Processor Bitmap Small...etc...
+		vm: 	a VirtualMachine
+
+
+CurrentExecutionEnvironment class>>activate:for:
+	Receiver: CurrentExecutionEnvironment
+	Arguments and temporary variables: 
+		arg1: 	a DefaultExecutionEnvironment
+		arg2: 	[ 
+		^ SessionManager default snapshot: arg1 andQuit: arg2 ]
+		tmp1: 	nil
+	Receiver's instance variables: 
+		superclass: 	ProcessLocalVariable
+		methodDict: 	a MethodDictionary(#default->CurrentExecutionEnvironment>>#default ...etc...
+		format: 	65537
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#CurrentExecutionEnvironment
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Kernel-Processes'
+		soleInstance: 	a CurrentExecutionEnvironment
+
+
+DefaultExecutionEnvironment(ExecutionEnvironment)>>beActiveDuring:
+	Receiver: a DefaultExecutionEnvironment
+	Arguments and temporary variables: 
+		arg1: 	[ 
+		^ SessionManager default snapshot: arg1 andQuit: arg2 ]
+	Receiver's instance variables: 
+a DefaultExecutionEnvironment
+
+DefaultExecutionEnvironment class>>beActiveDuring:
+	Receiver: DefaultExecutionEnvironment
+	Arguments and temporary variables: 
+		arg1: 	[ 
+		^ SessionManager default snapshot: arg1 andQuit: arg2 ]
+	Receiver's instance variables: 
+		superclass: 	ExecutionEnvironment
+		methodDict: 	a MethodDictionary(#maxTimeForTest:->DefaultExecutionEnvironment>>#...etc...
+		format: 	0
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#DefaultExecutionEnvironment
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Kernel-Processes'
+		instance: 	a DefaultExecutionEnvironment
+
+
+SmalltalkImage>>snapshot:andQuit:
+	Receiver: Smalltalk
+	Arguments and temporary variables: 
+		arg1: 	true
+		arg2: 	true
+	Receiver's instance variables: 
+		globals: 	a SystemDictionary(lots of globals)
+		specialObjectsArray: 	an Array(nil false true #Processor->Processor Bitmap Small...etc...
+		vm: 	a VirtualMachine
+
+
+ImageCleanerCommandLineHandler>>activate
+	Receiver: an ImageCleanerCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+ImageCleanerCommandLineHandler class(CommandLineHandler class)>>activateWith:
+	Receiver: ImageCleanerCommandLineHandler
+	Arguments and temporary variables: 
+<<error during printing>>
+	Receiver's instance variables: 
+		superclass: 	CommandLineHandler
+		methodDict: 	a MethodDictionary(#activate->ImageCleanerCommandLineHandler>>#acti...etc...
+		format: 	65540
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#ImageCleanerCommandLineHandler
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Tool-ImageCleaner'
+
+
+[ arg1 activateWith: commandLine ] in PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		arg1: 	ImageCleanerCommandLineHandler
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ arg1 activateWith: commandLine ]
+	Arguments and temporary variables: 
+		arg1: 	Exit
+		arg2: 	[ :arg2 | ^ self handleExit: arg2 for: arg1 ]
+	Receiver's instance variables: 
+		outerContext: 	PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubComm...etc...
+		startpc: 	a CompiledBlock: [ arg1 activateWith: commandLine ]
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		arg1: 	ImageCleanerCommandLineHandler
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleSubcommand
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		tmp1: 	an OrderedCollection(ImageCleanerCommandLineHandler)
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleArgument:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		arg1: 	'clean'
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+[ self handleArgument: self firstArgument ] in [ 
+	[ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :arg2 | 
+			self class commandLinePasswordManager hasPasswordSet ifTrue: [ 
+				Smalltalk snapshot: false andQuit: true ].
+			self handleExit: arg2 ] ] in BasicCommandLineHandler>>activate
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ self handleArgument: self firstArgument ]
+	Arguments and temporary variables: 
+		arg1: 	Exit
+		arg2: 	[ :arg2 | 
+			self class commandLinePasswordManager hasPasswordSet ifTrue...etc...
+	Receiver's instance variables: 
+		outerContext: 	[ 
+	[ self handleArgument: self firstArgument ]
+		on: Exit
+		do: ...etc...
+		startpc: 	a CompiledBlock: [ self handleArgument: self firstArgument ]
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+[ 
+	[ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :arg2 | 
+			self class commandLinePasswordManager hasPasswordSet ifTrue: [ 
+				Smalltalk snapshot: false andQuit: true ].
+			self handleExit: arg2 ] ] in BasicCommandLineHandler>>activate
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+[ 
+			  self value.
+			  Processor terminateRealActive ] in FullBlockClosure(BlockClosure)>>newProcess
+	Receiver: [ 
+	[ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :arg2 | 
+			self class ...etc...
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		outerContext: 	PharoCommandLineHandler(BasicCommandLineHandler)>>activate
+		startpc: 	a CompiledBlock: [ 
+	[ self handleArgument: self firstArgument ]
+		on:...etc...
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+
+--- The full stack ---
+File class(ProtoObject)>>primitiveFailed:
+File class(ProtoObject)>>primitiveFailed
+File class>>fileDescriptorType:
+File class>>fileDescriptorIsAvailable:
+Stdio class>>standardIOStreamNamed:forWrite:
+Stdio class>>stdout
+VTermOutputDriver class>>stdout
+BasicCommandLineHandler(CommandLineHandler)>>initializeStdout
+BasicCommandLineHandler(CommandLineHandler)>>initialize
+BasicCommandLineHandler>>initialize
+BasicCommandLineHandler class(Behavior)>>new
+[ self new activate ] in BasicCommandLineHandler class>>startUp:
+FullBlockClosure(BlockClosure)>>cull:
+WorkingSession>>executeDeferredStartupActions:
+SessionManager>>snapshot:andQuit:
+[ 
+		^ SessionManager default snapshot: arg1 andQuit: arg2 ] in SmalltalkImage>>snapshot:andQuit:
+CurrentExecutionEnvironment class>>activate:for:
+DefaultExecutionEnvironment(ExecutionEnvironment)>>beActiveDuring:
+DefaultExecutionEnvironment class>>beActiveDuring:
+SmalltalkImage>>snapshot:andQuit:
+ImageCleanerCommandLineHandler>>activate
+ImageCleanerCommandLineHandler class(CommandLineHandler class)>>activateWith:
+[ arg1 activateWith: commandLine ] in PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+FullBlockClosure(BlockClosure)>>on:do:
+PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleSubcommand
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleArgument:
+[ self handleArgument: self firstArgument ] in [ 
+	[ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :arg2 | 
+			self class commandLinePasswordManager hasPasswordSet ifTrue: [ 
+				Smalltalk snapshot: false andQuit: true ].
+			self handleExit: arg2 ] ] in BasicCommandLineHandler>>activate
+FullBlockClosure(BlockClosure)>>on:do:
+[ 
+	[ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :arg2 | 
+			self class commandLinePasswordManager hasPasswordSet ifTrue: [ 
+				Smalltalk snapshot: false andQuit: true ].
+			self handleExit: arg2 ] ] in BasicCommandLineHandler>>activate
+[ 
+			  self value.
+			  Processor terminateRealActive ] in FullBlockClosure(BlockClosure)>>newProcess
+-------------------------------------------------------------------------------
+
+THERE_BE_DRAGONS_HERE
+PrimitiveFailed: primitive #fileDescriptorType: in File class failed
+6 April 2022 10:45:01.028749 pm
+
+VM: unix - x86_64 - linux-gnu - CoInterpreter VMMaker.oscog-eem.2231 uuid: de62947a-7f40-4977-a232-e06a3a80c939 Jan  1 1980
+StackToRegisterMappingCogit VMMaker.oscog-eem.2227 uuid: 7ea146b4-39ce-4de7-afa3-a76ed1d1da35 Jan  1 1980
+VM: git.6a63f68a3dd4deb7c17dd2c7ac6e4dd4b0b6d937 https://github.com/pharo-project/pharo-vm $ Date: Tue May 30 19:41:27 2017 -0700 $ Plugins:  $Rev$
+
+Image: Pharo10.0.0 [Build information: Pharo-10.0.0+build.512.sha.bfb3a61094b9b7409b265d3f15a3d126b4ef597c (64 Bit)]
+
+File class(ProtoObject)>>primitiveFailed:
+	Receiver: File
+	Arguments and temporary variables: 
+		arg1: 	#fileDescriptorType:
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary(#basename->File>>#basename #basicOpenForWrite:->...etc...
+		format: 	65537
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#File
+		classPool: 	a Dictionary(#Registry->a WeakRegistry(<this WeakRegistry is locked>...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Core'
+
+
+File class(ProtoObject)>>primitiveFailed
+	Receiver: File
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary(#basename->File>>#basename #basicOpenForWrite:->...etc...
+		format: 	65537
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#File
+		classPool: 	a Dictionary(#Registry->a WeakRegistry(<this WeakRegistry is locked>...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Core'
+
+
+File class>>fileDescriptorType:
+	Receiver: File
+	Arguments and temporary variables: 
+		arg1: 	1
+		error: 	#'not found'
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary(#basename->File>>#basename #basicOpenForWrite:->...etc...
+		format: 	65537
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#File
+		classPool: 	a Dictionary(#Registry->a WeakRegistry(<this WeakRegistry is locked>...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Core'
+
+
+File class>>fileDescriptorIsAvailable:
+	Receiver: File
+	Arguments and temporary variables: 
+		arg1: 	1
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary(#basename->File>>#basename #basicOpenForWrite:->...etc...
+		format: 	65537
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#File
+		classPool: 	a Dictionary(#Registry->a WeakRegistry(<this WeakRegistry is locked>...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Core'
+
+
+Stdio class>>standardIOStreamNamed:forWrite:
+	Receiver: Stdio
+	Arguments and temporary variables: 
+		arg1: 	#stdout
+		arg2: 	true
+		tmp1: 	#[247 135 113 125 0 0 0 0 32 165 182 193 206 127 0 0 0 0 0 0 0 0 0 0 1 2 ...etc...
+		tmp2: 	2
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary()
+		format: 	0
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#Stdio
+		classPool: 	a Dictionary(#CreateWriteStreamBlock->nil #Stderr->nil #Stdin->nil #...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Core'
+
+
+Stdio class>>stdout
+	Receiver: Stdio
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary()
+		format: 	0
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#Stdio
+		classPool: 	a Dictionary(#CreateWriteStreamBlock->nil #Stderr->nil #Stdin->nil #...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Core'
+
+
+VTermOutputDriver class>>stdout
+	Receiver: VTermOutputDriver
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary(#'<<'->VTermOutputDriver>>#'<<' #background256:-...etc...
+		format: 	65542
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#VTermOutputDriver
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'System-CommandLine-VTerm-Driver'
+
+
+BasicCommandLineHandler(CommandLineHandler)>>initializeStdout
+	Receiver: a BasicCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	nil
+		session: 	a WorkingSession
+		stdout: 	nil
+		stderr: 	nil
+
+
+BasicCommandLineHandler(CommandLineHandler)>>initialize
+	Receiver: a BasicCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	nil
+		session: 	a WorkingSession
+		stdout: 	nil
+		stderr: 	nil
+
+
+BasicCommandLineHandler>>initialize
+	Receiver: a BasicCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	nil
+		session: 	a WorkingSession
+		stdout: 	nil
+		stderr: 	nil
+
+
+BasicCommandLineHandler class(Behavior)>>new
+	Receiver: BasicCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		superclass: 	CommandLineHandler
+		methodDict: 	a MethodDictionary(#activate->BasicCommandLineHandler>>#activate #a...etc...
+		format: 	65540
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	{PharoCommandLineHandler}
+		name: 	#BasicCommandLineHandler
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'System-BasicCommandLineHandler-Base'
+
+
+[ self new activate ] in BasicCommandLineHandler class>>startUp:
+	Receiver: BasicCommandLineHandler
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		superclass: 	CommandLineHandler
+		methodDict: 	a MethodDictionary(#activate->BasicCommandLineHandler>>#activate #a...etc...
+		format: 	65540
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	{PharoCommandLineHandler}
+		name: 	#BasicCommandLineHandler
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'System-BasicCommandLineHandler-Base'
+
+
+FullBlockClosure(BlockClosure)>>cull:
+	Receiver: [ self new activate ]
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		outerContext: 	BasicCommandLineHandler class>>startUp:
+		startpc: 	a CompiledBlock: [ self new activate ]
+		numArgs: 	0
+		receiver: 	BasicCommandLineHandler
+
+
+WorkingSession>>executeDeferredStartupActions:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	true
+		tmp1: 	[ self new activate ]
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+				self uiManager handleError:...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+SessionManager>>snapshot:andQuit:
+	Receiver: a SessionManager
+	Arguments and temporary variables: 
+		tmp3: 	true
+		arg1: 	true
+		arg2: 	true
+		tmp1: 	a Semaphore()
+	Receiver's instance variables: 
+		currentSession: 	a WorkingSession
+		categories: 	an OrderedCollection(a SessionCategory(System) a SessionCategory(Ne...etc...
+		guiCategory: 	a SessionCategory(Graphical User Interface)
+		toolsCategory: 	a SessionCategory(Tools)
+		networkCategory: 	a SessionCategory(Network)
+		systemCategory: 	a SessionCategory(System)
+		userCategory: 	a SessionCategory(User)
+
+
+[ 
+		^ SessionManager default snapshot: arg1 andQuit: arg2 ] in SmalltalkImage>>snapshot:andQuit:
+	Receiver: Smalltalk
+	Arguments and temporary variables: 
+		arg1: 	true
+		arg2: 	true
+	Receiver's instance variables: 
+		globals: 	a SystemDictionary(lots of globals)
+		specialObjectsArray: 	an Array(nil false true #Processor->Processor Bitmap Small...etc...
+		vm: 	a VirtualMachine
+
+
+CurrentExecutionEnvironment class>>activate:for:
+	Receiver: CurrentExecutionEnvironment
+	Arguments and temporary variables: 
+		arg1: 	a DefaultExecutionEnvironment
+		arg2: 	[ 
+		^ SessionManager default snapshot: arg1 andQuit: arg2 ]
+		tmp1: 	nil
+	Receiver's instance variables: 
+		superclass: 	ProcessLocalVariable
+		methodDict: 	a MethodDictionary(#default->CurrentExecutionEnvironment>>#default ...etc...
+		format: 	65537
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#CurrentExecutionEnvironment
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Kernel-Processes'
+		soleInstance: 	a CurrentExecutionEnvironment
+
+
+DefaultExecutionEnvironment(ExecutionEnvironment)>>beActiveDuring:
+	Receiver: a DefaultExecutionEnvironment
+	Arguments and temporary variables: 
+		arg1: 	[ 
+		^ SessionManager default snapshot: arg1 andQuit: arg2 ]
+	Receiver's instance variables: 
+a DefaultExecutionEnvironment
+
+DefaultExecutionEnvironment class>>beActiveDuring:
+	Receiver: DefaultExecutionEnvironment
+	Arguments and temporary variables: 
+		arg1: 	[ 
+		^ SessionManager default snapshot: arg1 andQuit: arg2 ]
+	Receiver's instance variables: 
+		superclass: 	ExecutionEnvironment
+		methodDict: 	a MethodDictionary(#maxTimeForTest:->DefaultExecutionEnvironment>>#...etc...
+		format: 	0
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#DefaultExecutionEnvironment
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Kernel-Processes'
+		instance: 	a DefaultExecutionEnvironment
+
+
+SmalltalkImage>>snapshot:andQuit:
+	Receiver: Smalltalk
+	Arguments and temporary variables: 
+		arg1: 	true
+		arg2: 	true
+	Receiver's instance variables: 
+		globals: 	a SystemDictionary(lots of globals)
+		specialObjectsArray: 	an Array(nil false true #Processor->Processor Bitmap Small...etc...
+		vm: 	a VirtualMachine
+
+
+ImageCleanerCommandLineHandler>>activate
+	Receiver: an ImageCleanerCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+ImageCleanerCommandLineHandler class(CommandLineHandler class)>>activateWith:
+	Receiver: ImageCleanerCommandLineHandler
+	Arguments and temporary variables: 
+<<error during printing>>
+	Receiver's instance variables: 
+		superclass: 	CommandLineHandler
+		methodDict: 	a MethodDictionary(#activate->ImageCleanerCommandLineHandler>>#acti...etc...
+		format: 	65540
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#ImageCleanerCommandLineHandler
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Tool-ImageCleaner'
+
+
+[ arg1 activateWith: commandLine ] in PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		arg1: 	ImageCleanerCommandLineHandler
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ arg1 activateWith: commandLine ]
+	Arguments and temporary variables: 
+		arg1: 	Exit
+		arg2: 	[ :arg2 | ^ self handleExit: arg2 for: arg1 ]
+	Receiver's instance variables: 
+		outerContext: 	PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubComm...etc...
+		startpc: 	a CompiledBlock: [ arg1 activateWith: commandLine ]
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		arg1: 	ImageCleanerCommandLineHandler
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleSubcommand
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		tmp1: 	an OrderedCollection(ImageCleanerCommandLineHandler)
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleArgument:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		arg1: 	'clean'
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+[ self handleArgument: self firstArgument ] in [ 
+	[ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :arg2 | 
+			self class commandLinePasswordManager hasPasswordSet ifTrue: [ 
+				Smalltalk snapshot: false andQuit: true ].
+			self handleExit: arg2 ] ] in BasicCommandLineHandler>>activate
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ self handleArgument: self firstArgument ]
+	Arguments and temporary variables: 
+		arg1: 	Exit
+		arg2: 	[ :arg2 | 
+			self class commandLinePasswordManager hasPasswordSet ifTrue...etc...
+	Receiver's instance variables: 
+		outerContext: 	[ 
+	[ self handleArgument: self firstArgument ]
+		on: Exit
+		do: ...etc...
+		startpc: 	a CompiledBlock: [ self handleArgument: self firstArgument ]
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+[ 
+	[ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :arg2 | 
+			self class commandLinePasswordManager hasPasswordSet ifTrue: [ 
+				Smalltalk snapshot: false andQuit: true ].
+			self handleExit: arg2 ] ] in BasicCommandLineHandler>>activate
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+[ 
+			  self value.
+			  Processor terminateRealActive ] in FullBlockClosure(BlockClosure)>>newProcess
+	Receiver: [ 
+	[ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :arg2 | 
+			self class ...etc...
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		outerContext: 	PharoCommandLineHandler(BasicCommandLineHandler)>>activate
+		startpc: 	a CompiledBlock: [ 
+	[ self handleArgument: self firstArgument ]
+		on:...etc...
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+
+--- The full stack ---
+File class(ProtoObject)>>primitiveFailed:
+File class(ProtoObject)>>primitiveFailed
+File class>>fileDescriptorType:
+File class>>fileDescriptorIsAvailable:
+Stdio class>>standardIOStreamNamed:forWrite:
+Stdio class>>stdout
+VTermOutputDriver class>>stdout
+BasicCommandLineHandler(CommandLineHandler)>>initializeStdout
+BasicCommandLineHandler(CommandLineHandler)>>initialize
+BasicCommandLineHandler>>initialize
+BasicCommandLineHandler class(Behavior)>>new
+[ self new activate ] in BasicCommandLineHandler class>>startUp:
+FullBlockClosure(BlockClosure)>>cull:
+WorkingSession>>executeDeferredStartupActions:
+SessionManager>>snapshot:andQuit:
+[ 
+		^ SessionManager default snapshot: arg1 andQuit: arg2 ] in SmalltalkImage>>snapshot:andQuit:
+CurrentExecutionEnvironment class>>activate:for:
+DefaultExecutionEnvironment(ExecutionEnvironment)>>beActiveDuring:
+DefaultExecutionEnvironment class>>beActiveDuring:
+SmalltalkImage>>snapshot:andQuit:
+ImageCleanerCommandLineHandler>>activate
+ImageCleanerCommandLineHandler class(CommandLineHandler class)>>activateWith:
+[ arg1 activateWith: commandLine ] in PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+FullBlockClosure(BlockClosure)>>on:do:
+PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleSubcommand
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleArgument:
+[ self handleArgument: self firstArgument ] in [ 
+	[ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :arg2 | 
+			self class commandLinePasswordManager hasPasswordSet ifTrue: [ 
+				Smalltalk snapshot: false andQuit: true ].
+			self handleExit: arg2 ] ] in BasicCommandLineHandler>>activate
+FullBlockClosure(BlockClosure)>>on:do:
+[ 
+	[ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :arg2 | 
+			self class commandLinePasswordManager hasPasswordSet ifTrue: [ 
+				Smalltalk snapshot: false andQuit: true ].
+			self handleExit: arg2 ] ] in BasicCommandLineHandler>>activate
+[ 
+			  self value.
+			  Processor terminateRealActive ] in FullBlockClosure(BlockClosure)>>newProcess
+-------------------------------------------------------------------------------
+
+THERE_BE_DRAGONS_HERE
+
+Original error: PrimitiveFailed: primitive #fileDescriptorType: in File class failed.
+Debugger error: Error: Failed to find SDL2 library.
+
+6 April 2022 10:45:01.269409 pm
+
+VM: unix - x86_64 - linux-gnu - CoInterpreter VMMaker.oscog-eem.2231 uuid: de62947a-7f40-4977-a232-e06a3a80c939 Jan  1 1980
+StackToRegisterMappingCogit VMMaker.oscog-eem.2227 uuid: 7ea146b4-39ce-4de7-afa3-a76ed1d1da35 Jan  1 1980
+VM: git.6a63f68a3dd4deb7c17dd2c7ac6e4dd4b0b6d937 https://github.com/pharo-project/pharo-vm $ Date: Tue May 30 19:41:27 2017 -0700 $ Plugins:  $Rev$
+
+Image: Pharo10.0.0 [Build information: Pharo-10.0.0+build.512.sha.bfb3a61094b9b7409b265d3f15a3d126b4ef597c (64 Bit)]
+
+File class(ProtoObject)>>primitiveFailed:
+	Receiver: File
+	Arguments and temporary variables: 
+		arg1: 	#fileDescriptorType:
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary(#basename->File>>#basename #basicOpenForWrite:->...etc...
+		format: 	65537
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#File
+		classPool: 	a Dictionary(#Registry->a WeakRegistry(<this WeakRegistry is locked>...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Core'
+
+
+File class(ProtoObject)>>primitiveFailed
+	Receiver: File
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary(#basename->File>>#basename #basicOpenForWrite:->...etc...
+		format: 	65537
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#File
+		classPool: 	a Dictionary(#Registry->a WeakRegistry(<this WeakRegistry is locked>...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Core'
+
+
+File class>>fileDescriptorType:
+	Receiver: File
+	Arguments and temporary variables: 
+		arg1: 	1
+		error: 	#'not found'
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary(#basename->File>>#basename #basicOpenForWrite:->...etc...
+		format: 	65537
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#File
+		classPool: 	a Dictionary(#Registry->a WeakRegistry(<this WeakRegistry is locked>...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Core'
+
+
+File class>>fileDescriptorIsAvailable:
+	Receiver: File
+	Arguments and temporary variables: 
+		arg1: 	1
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary(#basename->File>>#basename #basicOpenForWrite:->...etc...
+		format: 	65537
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#File
+		classPool: 	a Dictionary(#Registry->a WeakRegistry(<this WeakRegistry is locked>...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Core'
+
+
+Stdio class>>standardIOStreamNamed:forWrite:
+	Receiver: Stdio
+	Arguments and temporary variables: 
+		arg1: 	#stdout
+		arg2: 	true
+		tmp1: 	#[247 135 113 125 0 0 0 0 32 165 182 193 206 127 0 0 0 0 0 0 0 0 0 0 1 2 ...etc...
+		tmp2: 	2
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary()
+		format: 	0
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#Stdio
+		classPool: 	a Dictionary(#CreateWriteStreamBlock->nil #Stderr->nil #Stdin->nil #...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Core'
+
+
+Stdio class>>stdout
+	Receiver: Stdio
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary()
+		format: 	0
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#Stdio
+		classPool: 	a Dictionary(#CreateWriteStreamBlock->nil #Stderr->nil #Stdin->nil #...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Core'
+
+
+VTermOutputDriver class>>stdout
+	Receiver: VTermOutputDriver
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		superclass: 	Object
+		methodDict: 	a MethodDictionary(#'<<'->VTermOutputDriver>>#'<<' #background256:-...etc...
+		format: 	65542
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#VTermOutputDriver
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'System-CommandLine-VTerm-Driver'
+
+
+BasicCommandLineHandler(CommandLineHandler)>>initializeStdout
+	Receiver: a BasicCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	nil
+		session: 	a WorkingSession
+		stdout: 	nil
+		stderr: 	nil
+
+
+BasicCommandLineHandler(CommandLineHandler)>>initialize
+	Receiver: a BasicCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	nil
+		session: 	a WorkingSession
+		stdout: 	nil
+		stderr: 	nil
+
+
+BasicCommandLineHandler>>initialize
+	Receiver: a BasicCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	nil
+		session: 	a WorkingSession
+		stdout: 	nil
+		stderr: 	nil
+
+
+BasicCommandLineHandler class(Behavior)>>new
+	Receiver: BasicCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		superclass: 	CommandLineHandler
+		methodDict: 	a MethodDictionary(#activate->BasicCommandLineHandler>>#activate #a...etc...
+		format: 	65540
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	{PharoCommandLineHandler}
+		name: 	#BasicCommandLineHandler
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'System-BasicCommandLineHandler-Base'
+
+
+[ self new activate ] in BasicCommandLineHandler class>>startUp:
+	Receiver: BasicCommandLineHandler
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		superclass: 	CommandLineHandler
+		methodDict: 	a MethodDictionary(#activate->BasicCommandLineHandler>>#activate #a...etc...
+		format: 	65540
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	{PharoCommandLineHandler}
+		name: 	#BasicCommandLineHandler
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'System-BasicCommandLineHandler-Base'
+
+
+FullBlockClosure(BlockClosure)>>cull:
+	Receiver: [ self new activate ]
+	Arguments and temporary variables: 
+		arg1: 	true
+	Receiver's instance variables: 
+		outerContext: 	BasicCommandLineHandler class>>startUp:
+		startpc: 	a CompiledBlock: [ self new activate ]
+		numArgs: 	0
+		receiver: 	BasicCommandLineHandler
+
+
+WorkingSession>>executeDeferredStartupActions:
+	Receiver: a WorkingSession
+	Arguments and temporary variables: 
+		arg1: 	true
+		tmp1: 	[ self new activate ]
+	Receiver's instance variables: 
+		manager: 	a SessionManager
+		deferredStartupActions: 	an OrderedCollection([ 
+				self uiManager handleError:...etc...
+		id: 	nil
+		creationTime: 	2022-04-06T22:45:00.747897+01:00
+		properties: 	a Dictionary(#accessMode->#readWrite )
+
+
+SessionManager>>snapshot:andQuit:
+	Receiver: a SessionManager
+	Arguments and temporary variables: 
+		tmp3: 	true
+		arg1: 	true
+		arg2: 	true
+		tmp1: 	a Semaphore()
+	Receiver's instance variables: 
+		currentSession: 	a WorkingSession
+		categories: 	an OrderedCollection(a SessionCategory(System) a SessionCategory(Ne...etc...
+		guiCategory: 	a SessionCategory(Graphical User Interface)
+		toolsCategory: 	a SessionCategory(Tools)
+		networkCategory: 	a SessionCategory(Network)
+		systemCategory: 	a SessionCategory(System)
+		userCategory: 	a SessionCategory(User)
+
+
+[ 
+		^ SessionManager default snapshot: arg1 andQuit: arg2 ] in SmalltalkImage>>snapshot:andQuit:
+	Receiver: Smalltalk
+	Arguments and temporary variables: 
+		arg1: 	true
+		arg2: 	true
+	Receiver's instance variables: 
+		globals: 	a SystemDictionary(lots of globals)
+		specialObjectsArray: 	an Array(nil false true #Processor->Processor Bitmap Small...etc...
+		vm: 	a VirtualMachine
+
+
+CurrentExecutionEnvironment class>>activate:for:
+	Receiver: CurrentExecutionEnvironment
+	Arguments and temporary variables: 
+		arg1: 	a DefaultExecutionEnvironment
+		arg2: 	[ 
+		^ SessionManager default snapshot: arg1 andQuit: arg2 ]
+		tmp1: 	nil
+	Receiver's instance variables: 
+		superclass: 	ProcessLocalVariable
+		methodDict: 	a MethodDictionary(#default->CurrentExecutionEnvironment>>#default ...etc...
+		format: 	65537
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#CurrentExecutionEnvironment
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Kernel-Processes'
+		soleInstance: 	a CurrentExecutionEnvironment
+
+
+DefaultExecutionEnvironment(ExecutionEnvironment)>>beActiveDuring:
+	Receiver: a DefaultExecutionEnvironment
+	Arguments and temporary variables: 
+		arg1: 	[ 
+		^ SessionManager default snapshot: arg1 andQuit: arg2 ]
+	Receiver's instance variables: 
+a DefaultExecutionEnvironment
+
+DefaultExecutionEnvironment class>>beActiveDuring:
+	Receiver: DefaultExecutionEnvironment
+	Arguments and temporary variables: 
+		arg1: 	[ 
+		^ SessionManager default snapshot: arg1 andQuit: arg2 ]
+	Receiver's instance variables: 
+		superclass: 	ExecutionEnvironment
+		methodDict: 	a MethodDictionary(#maxTimeForTest:->DefaultExecutionEnvironment>>#...etc...
+		format: 	0
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#DefaultExecutionEnvironment
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Kernel-Processes'
+		instance: 	a DefaultExecutionEnvironment
+
+
+SmalltalkImage>>snapshot:andQuit:
+	Receiver: Smalltalk
+	Arguments and temporary variables: 
+		arg1: 	true
+		arg2: 	true
+	Receiver's instance variables: 
+		globals: 	a SystemDictionary(lots of globals)
+		specialObjectsArray: 	an Array(nil false true #Processor->Processor Bitmap Small...etc...
+		vm: 	a VirtualMachine
+
+
+ImageCleanerCommandLineHandler>>activate
+	Receiver: an ImageCleanerCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+ImageCleanerCommandLineHandler class(CommandLineHandler class)>>activateWith:
+	Receiver: ImageCleanerCommandLineHandler
+	Arguments and temporary variables: 
+<<error during printing>>
+	Receiver's instance variables: 
+		superclass: 	CommandLineHandler
+		methodDict: 	a MethodDictionary(#activate->ImageCleanerCommandLineHandler>>#acti...etc...
+		format: 	65540
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#ImageCleanerCommandLineHandler
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Tool-ImageCleaner'
+
+
+[ arg1 activateWith: commandLine ] in PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		arg1: 	ImageCleanerCommandLineHandler
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ arg1 activateWith: commandLine ]
+	Arguments and temporary variables: 
+		arg1: 	Exit
+		arg2: 	[ :arg2 | ^ self handleExit: arg2 for: arg1 ]
+	Receiver's instance variables: 
+		outerContext: 	PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubComm...etc...
+		startpc: 	a CompiledBlock: [ arg1 activateWith: commandLine ]
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		arg1: 	ImageCleanerCommandLineHandler
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleSubcommand
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		tmp1: 	an OrderedCollection(ImageCleanerCommandLineHandler)
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleArgument:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		arg1: 	'clean'
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+[ self handleArgument: self firstArgument ] in [ 
+	[ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :arg2 | 
+			self class commandLinePasswordManager hasPasswordSet ifTrue: [ 
+				Smalltalk snapshot: false andQuit: true ].
+			self handleExit: arg2 ] ] in BasicCommandLineHandler>>activate
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ self handleArgument: self firstArgument ]
+	Arguments and temporary variables: 
+		arg1: 	Exit
+		arg2: 	[ :arg2 | 
+			self class commandLinePasswordManager hasPasswordSet ifTrue...etc...
+	Receiver's instance variables: 
+		outerContext: 	[ 
+	[ self handleArgument: self firstArgument ]
+		on: Exit
+		do: ...etc...
+		startpc: 	a CompiledBlock: [ self handleArgument: self firstArgument ]
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+[ 
+	[ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :arg2 | 
+			self class commandLinePasswordManager hasPasswordSet ifTrue: [ 
+				Smalltalk snapshot: false andQuit: true ].
+			self handleExit: arg2 ] ] in BasicCommandLineHandler>>activate
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+[ 
+			  self value.
+			  Processor terminateRealActive ] in FullBlockClosure(BlockClosure)>>newProcess
+	Receiver: [ 
+	[ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :arg2 | 
+			self class ...etc...
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		outerContext: 	PharoCommandLineHandler(BasicCommandLineHandler)>>activate
+		startpc: 	a CompiledBlock: [ 
+	[ self handleArgument: self firstArgument ]
+		on:...etc...
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+
+--- The full stack ---
+File class(ProtoObject)>>primitiveFailed:
+File class(ProtoObject)>>primitiveFailed
+File class>>fileDescriptorType:
+File class>>fileDescriptorIsAvailable:
+Stdio class>>standardIOStreamNamed:forWrite:
+Stdio class>>stdout
+VTermOutputDriver class>>stdout
+BasicCommandLineHandler(CommandLineHandler)>>initializeStdout
+BasicCommandLineHandler(CommandLineHandler)>>initialize
+BasicCommandLineHandler>>initialize
+BasicCommandLineHandler class(Behavior)>>new
+[ self new activate ] in BasicCommandLineHandler class>>startUp:
+FullBlockClosure(BlockClosure)>>cull:
+WorkingSession>>executeDeferredStartupActions:
+SessionManager>>snapshot:andQuit:
+[ 
+		^ SessionManager default snapshot: arg1 andQuit: arg2 ] in SmalltalkImage>>snapshot:andQuit:
+CurrentExecutionEnvironment class>>activate:for:
+DefaultExecutionEnvironment(ExecutionEnvironment)>>beActiveDuring:
+DefaultExecutionEnvironment class>>beActiveDuring:
+SmalltalkImage>>snapshot:andQuit:
+ImageCleanerCommandLineHandler>>activate
+ImageCleanerCommandLineHandler class(CommandLineHandler class)>>activateWith:
+[ arg1 activateWith: commandLine ] in PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+FullBlockClosure(BlockClosure)>>on:do:
+PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleSubcommand
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleArgument:
+[ self handleArgument: self firstArgument ] in [ 
+	[ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :arg2 | 
+			self class commandLinePasswordManager hasPasswordSet ifTrue: [ 
+				Smalltalk snapshot: false andQuit: true ].
+			self handleExit: arg2 ] ] in BasicCommandLineHandler>>activate
+FullBlockClosure(BlockClosure)>>on:do:
+[ 
+	[ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :arg2 | 
+			self class commandLinePasswordManager hasPasswordSet ifTrue: [ 
+				Smalltalk snapshot: false andQuit: true ].
+			self handleExit: arg2 ] ] in BasicCommandLineHandler>>activate
+[ 
+			  self value.
+			  Processor terminateRealActive ] in FullBlockClosure(BlockClosure)>>newProcess
+-------------------------------------------------------------------------------
+
